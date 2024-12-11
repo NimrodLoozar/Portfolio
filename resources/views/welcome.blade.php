@@ -27,11 +27,32 @@
             height: 80%;
             /* Adjust this value to crop more from the top */
         }
+
+        .crop-top-third {
+            object-fit: cover;
+            object-position: top;
+            height: 100%;
+            clip-path: inset(33% 10% 5% 10%);
+            /* Crop the top third */
+        }
+
+        .shadow-custom {
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .hover-box {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hover-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+        }
     </style>
 </head>
 
 <body class="font-sans antialiased">
-    <div class="bg-white">
+    <div class=" bg-white">
         <header class="absolute inset-x-0 top-0 z-50">
             <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div class="flex lg:flex-1">
@@ -54,8 +75,8 @@
                 </div>
                 <div class="hidden lg:flex lg:gap-x-12">
                     <a href="#about" class="text-sm/6 font-semibold text-white">Over mij</a>
-                    <a href="#" class="text-sm/6 font-semibold text-white">Features</a>
-                    <a href="#" class="text-sm/6 font-semibold text-white">Marketplace</a>
+                    <a href="#projects" class="text-sm/6 font-semibold text-white">Pojecten</a>
+                    <a href="#contact" class="text-sm/6 font-semibold text-white">Contact</a>
                     <a href="#" class="text-sm/6 font-semibold text-white">Company</a>
                 </div>
                 <div class="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -91,10 +112,10 @@
                                 <a href="#about"
                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-50">Over
                                     mij</a>
-                                <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-50">Features</a>
-                                <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-50">Marketplace</a>
+                                <a href="#projects"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-50">Projecten</a>
+                                <a href="#contact"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-50">Contact</a>
                                 <a href="#"
                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-50">Company</a>
                             </div>
@@ -125,44 +146,41 @@
                     style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
                 </div>
             </div>
-            <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                <div class="relative mx-auto max-w-2xl lg:mx-0">
-                    <h2 class="text-5xl font-semibold tracking-tight text-white sm:text-7xl">Portofolio site van
+            <div class="relative mx-auto max-w-7xl px-6 lg:px-8 flex flex-col lg:flex-row items-center">
+                <div class="relative mx-auto max-w-2xl lg:mx-0 lg:w-2/3">
+                    <h2 class="text-5xl font-semibold tracking-tight text-white sm:text-7xl">Portfolio site van
                         Ferenc Nimród Lobozár</h2>
                     <p class="mt-8 text-pretty text-lg font-medium text-gray-300 sm:text-xl/8">Mijn doel is...</p>
-
-                </div>
-                <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
-                    <div
-                        class="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-white sm:grid-cols-2 md:flex lg:gap-x-10">
-                        <a href="#">Open roles <span aria-hidden="true">&rarr;</span></a>
-                        <a href="#">Internship program <span aria-hidden="true">&rarr;</span></a>
-                        <a href="#">Our values <span aria-hidden="true">&rarr;</span></a>
-                        <a href="#">Meet our leadership <span aria-hidden="true">&rarr;</span></a>
+                    <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
+                        <div
+                            class="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-white sm:grid-cols-2 md:flex lg:gap-x-10">
+                            <a href="#">Open roles <span aria-hidden="true">&rarr;</span></a>
+                            <a href="#">Internship program <span aria-hidden="true">&rarr;</span></a>
+                            <a href="#">Our values <span aria-hidden="true">&rarr;</span></a>
+                            <a href="#">Meet our leadership <span aria-hidden="true">&rarr;</span></a>
+                        </div>
+                        <dl class="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
+                            <div class="flex flex-col-reverse gap-1">
+                                <dt class="text-base/7 text-gray-300">Offices worldwide</dt>
+                                <dd class="text-4xl font-semibold tracking-tight text-white">12</dd>
+                            </div>
+                            <div class="flex flex-col-reverse gap-1">
+                                <dt class="text-base/7 text-gray-300">Full-time colleagues</dt>
+                                <dd class="text-4xl font-semibold tracking-tight text-white">300+</dd>
+                            </div>
+                            <div class="flex flex-col-reverse gap-1">
+                                <dt class="text-base/7 text-gray-300">Hours per week</dt>
+                                <dd class="text-4xl font-semibold tracking-tight text-white">40</dd>
+                            </div>
+                        </dl>
                     </div>
-                    <dl class="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
-                        <div class="flex flex-col-reverse gap-1">
-                            <dt class="text-base/7 text-gray-300">Offices worldwide</dt>
-                            <dd class="text-4xl font-semibold tracking-tight text-white">12</dd>
-                        </div>
-                        <div class="flex flex-col-reverse gap-1">
-                            <dt class="text-base/7 text-gray-300">Full-time colleagues</dt>
-                            <dd class="text-4xl font-semibold tracking-tight text-white">300+</dd>
-                        </div>
-                        <div class="flex flex-col-reverse gap-1">
-                            <dt class="text-base/7 text-gray-300">Hours per week</dt>
-                            <dd class="text-4xl font-semibold tracking-tight text-white">40</dd>
-                        </div>
-                        <div class="flex flex-col-reverse gap-1">
-                            <dt class="text-base/7 text-gray-300">Paid time off</dt>
-                            <dd class="text-4xl font-semibold tracking-tight text-white">Unlimited</dd>
-                        </div>
-                    </dl>
                 </div>
             </div>
         </div>
-        <img src="{{ asset('img/20240807_185820.jpg') }}" alt="Your Name"
-            class="absolute right-40 top-40 w-3/12 scale-110 object-cover z-10 transform crop-top">
+        <div class="absolute top-0 right-40 lg:w-1/4 mt-10 lg:mt-0 flex justify-center lg:justify-end">
+            <img src="{{ asset('img/20240807_185820.jpg') }}" alt="Your Name"
+                class="w-3/4 lg:w-full scale-110 object-cover shadow-[10px_10px_20px_rgba(0,0,0,0.5)] crop-top-third">
+        </div>
 
         <div id="about" class="bg-white py-24 sm:py-32">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -175,9 +193,14 @@
                         Hongarije toe om
                         familie te ontmoeten. In 2023 heb ik mijn middelbare afgerond op <strong>mavo</strong> niveau in
                         Soest op het
-                        <strong class="text-green-500">Griftland College</strong>. Daarna ben ik op
-                        <strong class="text-blue-500">MBO Utrecht ICT Academie</strong> gaan studeren voor
-                        <strong>Software developper niveau 4</strong>.
+                        <strong class="text-green-500"><a href="https://griftland.nl/" target="_blank">Griftland
+                                College</a></strong>.
+                        Daarna ben ik op
+                        <strong class="text-blue-500"><a href="https://www.mboutrecht.nl/academies/ict-academie/"
+                                target="_blank">MBO
+                                Utrecht ICT Academie</a></strong> gaan studeren voor
+                        <strong><a href="https://www.mboutrecht.nl/opleidingen/software-developer/"
+                                target="_blank">Software developper niveau 4</a></strong>.
                     </p>
                 </div>
                 <div
@@ -190,53 +213,140 @@
                             <div
                                 class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
                                 <div
-                                    class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8]">
+                                    class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8] hover-box shadow-[1px_1px_5px_rgba(0,0,0,0.5)]">
                                     <img src="{{ asset('img/html-5-logo.svg') }}" alt="HTML 5" class="scale-90">
                                     <p class="text-center mt-2 font-semibold text-gray-900">HTML 5</p>
                                 </div>
                                 <div
-                                    class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8]">
+                                    class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8] hover-box shadow-[1px_1px_5px_rgba(0,0,0,0.5)]">
                                     <img src="{{ asset('img/css-3-logo.svg') }}" alt="CSS 3">
                                     <p class="text-center mt-2 font-semibold text-gray-900">CSS 3</p>
                                 </div>
                                 <div
-                                    class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8]">
+                                    class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8] hover-box shadow-[1px_1px_5px_rgba(0,0,0,0.5)]">
                                     <img src="{{ asset('img/php-svgrepo-com.svg') }}" alt="PHP">
                                     <p class="text-center mt-2 font-semibold text-gray-900">PHP</p>
                                 </div>
                                 <div
-                                    class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8]">
+                                    class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8] hover-box shadow-[1px_1px_5px_rgba(0,0,0,0.5)]">
                                     <img src="{{ asset('img/laravel.svg.png') }}" alt="Laravel" class="scale-90">
                                     <p class="text-center mt-2 font-semibold text-gray-900">Laravel</p>
                                 </div>
                                 <div
-                                    class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8]">
+                                    class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8] hover-box shadow-[1px_1px_5px_rgba(0,0,0,0.5)]">
                                     <img src="{{ asset('img/git-logo.svg') }}" alt="Git" class="scale-75">
                                     <p class="text-center mt-2 font-semibold text-gray-900">Git</p>
                                 </div>
                                 <div
-                                    class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8]">
+                                    class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8] hover-box shadow-[1px_1px_5px_rgba(0,0,0,0.5)]">
                                     <img src="{{ asset('img/js-logo.svg') }}" alt="JavaScript" class="scale-75">
                                     <p class="text-center mt-2 font-semibold text-gray-900">JavaScript</p>
                                 </div>
                                 <div
-                                    class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8]">
+                                    class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8] hover-box shadow-[1px_1px_5px_rgba(0,0,0,0.5)]">
                                     <img src="{{ asset('img/Blade.png') }}" alt="Blade" class="scale-90">
                                     <p class="text-center mt-2 font-semibold text-gray-900">Blade</p>
                                 </div>
                                 <div
-                                    class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8]">
+                                    class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8] hover-box shadow-[1px_1px_5px_rgba(0,0,0,0.5)]">
                                     <img src="{{ asset('img/mysql-logo.svg') }}" alt="MySQL" class="scale-75">
                                     <p class="text-center mt-2 font-semibold text-gray-900">MySQL</p>
                                 </div>
                                 <div
-                                    class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8]">
+                                    class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8] hover-box shadow-[1px_1px_5px_rgba(0,0,0,0.5)]">
                                     <img src="{{ asset('img/mark.svg') }}" alt="MySQL" class="scale-75">
                                     <p class="text-center mt-2 font-semibold text-gray-900">Tailwind</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="projects" class="bg-gray-100 py-24 sm:py-32">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="mx-auto max-w-2xl lg:mx-0">
+                    <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Projecten leerjaar 1
+                    </h2>
+                    <p class="mt-2 text-lg text-gray-600">Here are some of the projects I have worked on:</p>
+                </div>
+                <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    <!-- Add your project details here -->
+                    <a href="https://github.com/Marzz616/GIT2.git" target="_blank">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-xl font-semibold text-gray-900">Project 1</h3>
+                            <p class="mt-2 text-gray-600">Description of project 1.</p>
+                        </div>
+                    </a>
+                    <a href="" target="_blank">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-xl font-semibold text-gray-900">Project 2</h3>
+                            <p class="mt-2 text-gray-600">Description of project 2.</p>
+                        </div>
+                    </a>
+                    <!-- Add more projects as needed -->
+                </div>
+                <br>
+                <div class="mx-auto max-w-2xl lg:mx-0 border-t border-gray-300 pt-5">
+                    <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Projecten leerjaar 2
+                    </h2>
+                    <p class="mt-2 text-lg text-gray-600">Here are some of the projects I have worked on:</p>
+                </div>
+                <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    <!-- Add your project details here -->
+                    <a href="/project" target="_blank">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-xl font-semibold text-gray-900">Project 1</h3>
+                            <p class="mt-2 text-gray-600">Description of project 1.</p>
+                        </div>
+                    </a>
+                    <a href="" target="_blank">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-xl font-semibold text-gray-900">Project 2</h3>
+                            <p class="mt-2 text-gray-600">Description of project 2.</p>
+                        </div>
+                    </a>
+                    <!-- Add more projects as needed -->
+                </div>
+            </div>
+        </div>
+
+        <div id="contact" class="bg-white py-24 sm:py-32">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="mx-auto max-w-2xl lg:mx-0">
+                    <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Contact</h2>
+                    <p class="mt-2 text-lg text-gray-600">Feel free to reach out to me through the following methods:
+                    </p>
+                </div>
+                <div class="mt-10">
+                    <form action="#" method="POST" class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                            <div class="mt-1">
+                                <input type="text" name="name" id="name" autocomplete="name"
+                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <div class="mt-1">
+                                <input type="email" name="email" id="email" autocomplete="email"
+                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            </div>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                            <div class="mt-1">
+                                <textarea id="message" name="message" rows="4"
+                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
+                            </div>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <button type="submit"
+                                class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Send</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
