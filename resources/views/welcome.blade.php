@@ -8,11 +8,11 @@
     <title>Laravel</title>
 
     <!-- Fonts -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 
     <link rel="preconnect" href="https://fonts.bunny.net">
-    {{-- <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" /> --}}
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet" /> --}}
+    {{-- <link rel="stylesheet" href="https://rsms.me/inter/inter.css"> --}}
 
     <!-- Styles / Scripts -->
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
@@ -272,20 +272,13 @@
                     <p class="mt-2 text-lg text-gray-600">Here are some of the projects I have worked on:</p>
                 </div>
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    <!-- Add your project details here -->
-                    <a href="https://github.com/Marzz616/GIT2.git" target="_blank">
-                        <div class="bg-white p-6 rounded-lg shadow-lg">
-                            <h3 class="text-xl font-semibold text-gray-900">Project 1</h3>
-                            <p class="mt-2 text-gray-600">Description of project 1.</p>
-                        </div>
-                    </a>
-                    <a href="" target="_blank">
-                        <div class="bg-white p-6 rounded-lg shadow-lg">
-                            <h3 class="text-xl font-semibold text-gray-900">Project 2</h3>
-                            <p class="mt-2 text-gray-600">Description of project 2.</p>
-                        </div>
-                    </a>
-                    <!-- Add more projects as needed -->
+                    @foreach ($projects->where('year', '1') as $project)
+                        <a href="{{ route('projects.show', $project->id) }}"
+                            class="project bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-xl font-semibold text-gray-900">{{ $project->title }}</h3>
+                            <p class="mt-2 text-gray-600">{{ $project->description }}</p>
+                        </a>
+                    @endforeach
                 </div>
                 <br>
                 <div class="mx-auto max-w-2xl lg:mx-0 border-t border-gray-300 pt-5">
@@ -294,20 +287,27 @@
                     <p class="mt-2 text-lg text-gray-600">Here are some of the projects I have worked on:</p>
                 </div>
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    <!-- Add your project details here -->
-                    <a href="/project" target="_blank">
-                        <div class="bg-white p-6 rounded-lg shadow-lg">
-                            <h3 class="text-xl font-semibold text-gray-900">Project 1</h3>
-                            <p class="mt-2 text-gray-600">Description of project 1.</p>
-                        </div>
-                    </a>
-                    <a href="" target="_blank">
-                        <div class="bg-white p-6 rounded-lg shadow-lg">
-                            <h3 class="text-xl font-semibold text-gray-900">Project 2</h3>
-                            <p class="mt-2 text-gray-600">Description of project 2.</p>
-                        </div>
-                    </a>
-                    <!-- Add more projects as needed -->
+                    @foreach ($projects->where('year', '2') as $project)
+                        <a href="{{ route('projects.show', $project->id) }}"
+                            class="project bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-xl font-semibold text-gray-900">{{ $project->title }}</h3>
+                            <p class="mt-2 text-gray-600">{{ $project->description }}</p>
+                        </a>
+                    @endforeach
+                </div>
+                <br>
+                <div class="mx-auto max-w-2xl lg:mx-0 border-t border-gray-300 pt-5">
+                    <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Eigen projecten</h2>
+                    <p class="mt-2 text-lg text-gray-600">Here are some of the projects I have worked on:</p>
+                </div>
+                <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    @foreach ($projects->where('year', 'Eigen project') as $project)
+                        <a href="{{ route('projects.show', $project->id) }}"
+                            class="project bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-xl font-semibold text-gray-900">{{ $project->title }}</h3>
+                            <p class="mt-2 text-gray-600">{{ $project->description }}</p>
+                        </a>
+                    @endforeach
                 </div>
             </div>
         </div>

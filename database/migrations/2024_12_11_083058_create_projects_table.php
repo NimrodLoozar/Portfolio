@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('url');
+            $table->string('year');
+            $table->string('banner')->nullable();
+            $table->json('images')->nullable();
             $table->timestamps();
         });
     }

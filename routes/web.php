@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\WelcomeController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
 Route::get('/project', function () {
     return view('project');
@@ -26,10 +26,13 @@ Route::get('/login', function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/project/new', [ProjectsController::class, 'create'])->name('projects.create');
+    Route::post('/project', [ProjectsController::class, 'store'])->name('projects.store');
+    Route::get('/project/{id}', [ProjectsController::class, 'show'])->name('projects.show');
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 require __DIR__ . '/auth.php';

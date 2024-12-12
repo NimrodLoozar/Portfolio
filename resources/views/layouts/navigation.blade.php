@@ -5,31 +5,16 @@
             <div class="flex">
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
-                        {{ __('Home') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('appointments.index')" :active="request()->routeIs('appointments.index')">
-                        {{ __('Appointments') }}
-                    </x-nav-link>
                     @if (Auth::check() && Auth::user()->role === 'admin')
-                        <x-nav-link :href="route('messages.admin.index')" :active="request()->routeIs('messages.admin.index')">
-                            {{ __('Messages') }}
+                        <x-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+                            {{ __('Home') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
-                            {{ __('Admin Dashboard') }}
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                            {{ __('Dashboard') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('admin.users')" :active="request()->routeIs('admin.users')">
-                            {{ __('Accounten Overzicht') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('admin.Employee')" :active="request()->routeIs('admin.Employee')">
-                            {{ __('Employee') }}
-                        </x-nav-link>
-                    @elseif (Auth::check() && Auth::user()->role === 'dentist')
-                        <x-nav-link :href="route('messages.index')" :active="request()->routeIs('messages.index')">
-                            {{ __('Messages') }}
+                    @else
+                        <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                            {{ __('Home') }}
                         </x-nav-link>
                     @endif
                 </div>
@@ -91,25 +76,13 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
-                {{ __('Home') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
             @if (Auth::check() && Auth::user()->role === 'admin')
-                <x-responsive-nav-link :href="route('messages.admin.index')" :active="request()->routeIs('messages.admin.index')">
-                    {{ __('Messages') }}
+                <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    {{ __('Dashboard') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
-                    {{ __('Admin Dashboard') }}
-                </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('admin.users')" :active="request()->routeIs('admin.users')">
-                    {{ __('Users') }}
-                </x-responsive-nav-link>
-            @elseif (Auth::check() && Auth::user()->role === 'dentist')
-                <x-responsive-nav-link :href="route('messages.index')" :active="request()->routeIs('messages.index')">
-                    {{ __('Messages') }}
+            @else
+                <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                    {{ __('Home') }}
                 </x-responsive-nav-link>
             @endif
         </div>
