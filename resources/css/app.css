@@ -13,7 +13,9 @@
     object-fit: cover;
     object-position: top;
     height: 100%;
-    clip-path: inset(33% 0 0 10%);
+    width: 100%;
+    margin-bottom: -10rem;
+    clip-path: inset(0 0 33% 0);
     /* Crop the top third */
 }
 
