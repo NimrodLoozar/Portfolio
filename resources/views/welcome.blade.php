@@ -79,10 +79,17 @@
                     <a href="#contact" class="text-sm/6 font-semibold text-white">Contact</a>
                     <a href="#" class="text-sm/6 font-semibold text-white">Company</a>
                 </div>
-                <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a href="login" class="text-sm/6 font-semibold text-white">Log in <span
-                            aria-hidden="true">&rarr;</span></a>
-                </div>
+                @auth
+                    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                        <a href="{{ route('dashboard') }}"
+                            class="text-sm/6 font-semibold text-white">{{ __('Dashboard') }}</a>
+                    </div>
+                @else
+                    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                        <a href="{{ route('login') }}" class="text-sm/6 font-semibold text-white">{{ __('Log in') }} <span
+                                aria-hidden="true">&rarr;</span></a>
+                    </div>
+                @endauth
             </nav>
             <!-- Mobile menu, show/hide based on menu open state. -->
             <div id="mobile-menu" class="lg:hidden hidden" role="dialog" aria-modal="true">
@@ -177,31 +184,29 @@
                 </div>
             </div>
         </div>
-        <div class="absolute top-0 right-40 lg:w-1/4 mt-10 lg:mt-0 flex justify-center lg:justify-end">
-            <img src="{{ asset('img/20240807_185820.jpg') }}" alt="Your Name"
-                class="w-3/4 lg:w-full scale-110 object-cover shadow-[10px_10px_20px_rgba(0,0,0,0.5)] crop-top-third">
-        </div>
 
         <div id="about" class="bg-white py-24 sm:py-32">
-            <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                <div class="mx-auto max-w-2xl lg:mx-0">
-                    <h2 class="text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Over mij
-                    </h2>
-                    <p class="mt-2 text-lg/8 text-gray-600">Ik ben in <strong>2006</strong> in
-                        <strong>Hongarije</strong> geboren, na mijn tiende zijn we
-                        naar nederland verhuizd, sinds dien leef ik hier. In de vakanties ga bijna elke keer naar
-                        Hongarije toe om
-                        familie te ontmoeten. In 2023 heb ik mijn middelbare afgerond op <strong>mavo</strong> niveau in
-                        Soest op het
-                        <strong class="text-green-500"><a href="https://griftland.nl/" target="_blank">Griftland
-                                College</a></strong>.
-                        Daarna ben ik op
-                        <strong class="text-blue-500"><a href="https://www.mboutrecht.nl/academies/ict-academie/"
-                                target="_blank">MBO
-                                Utrecht ICT Academie</a></strong> gaan studeren voor
-                        <strong><a href="https://www.mboutrecht.nl/opleidingen/software-developer/"
-                                target="_blank">Software developper niveau 4</a></strong>.
-                    </p>
+            <div class="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col items-center">
+                <div class="flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-28">
+                    <div class="mx-auto max-w-2xl lg:mx-0 lg:w-2/3">
+                        <h2 class="text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Over
+                            mij</h2>
+                        <p class="mt-2 text-lg/8 text-gray-600">Ik ben in <strong>2006</strong> in
+                            <strong>Hongarije</strong> geboren, na mijn tiende zijn we naar nederland verhuizd, sinds
+                            dien leef ik hier. In de vakanties ga bijna elke keer naar Hongarije toe om familie te
+                            ontmoeten. In 2023 heb ik mijn middelbare afgerond op <strong>mavo</strong> niveau in Soest
+                            op het <strong class="text-green-500"><a href="https://griftland.nl/"
+                                    target="_blank">Griftland College</a></strong>. Daarna ben ik op <strong
+                                class="text-blue-500"><a href="https://www.mboutrecht.nl/academies/ict-academie/"
+                                    target="_blank">MBO Utrecht ICT Academie</a></strong> gaan studeren voor <strong><a
+                                    href="https://www.mboutrecht.nl/opleidingen/software-developer/"
+                                    target="_blank">Software developper niveau 4</a></strong>.
+                        </p>
+                    </div>
+                    <div class="lg:w-1/3 flex justify-center lg:justify-end">
+                        <img src="{{ asset('img/20240807_185820.jpg') }}" alt="Your Name"
+                            class="w-3/4 lg:w-full scale-110 object-cover shadow-[10px_10px_20px_rgba(0,0,0,0.5)]">
+                    </div>
                 </div>
                 <div
                     class="mx-auto mt-10 max-w-2xl border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none">
@@ -262,106 +267,110 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div id="projects" class="bg-gray-100 py-24 sm:py-32">
-            <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                <div class="mx-auto max-w-2xl lg:mx-0">
-                    <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Projecten leerjaar 1
-                    </h2>
-                    <p class="mt-2 text-lg text-gray-600">Here are some of the projects I have worked on:</p>
-                </div>
-                <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    @foreach ($projects->where('year', '1') as $project)
-                        <a href="{{ route('projects.show', $project->id) }}"
-                            class="project bg-white p-6 rounded-lg shadow-lg">
-                            <h3 class="text-xl font-semibold text-gray-900">{{ $project->title }}</h3>
-                            <p class="mt-2 text-gray-600">{{ $project->description }}</p>
-                        </a>
-                    @endforeach
-                </div>
-                <br>
-                <div class="mx-auto max-w-2xl lg:mx-0 border-t border-gray-300 pt-5">
-                    <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Projecten leerjaar 2
-                    </h2>
-                    <p class="mt-2 text-lg text-gray-600">Here are some of the projects I have worked on:</p>
-                </div>
-                <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    @foreach ($projects->where('year', '2') as $project)
-                        <a href="{{ route('projects.show', $project->id) }}"
-                            class="project bg-white p-6 rounded-lg shadow-lg">
-                            <h3 class="text-xl font-semibold text-gray-900">{{ $project->title }}</h3>
-                            <p class="mt-2 text-gray-600">{{ $project->description }}</p>
-                        </a>
-                    @endforeach
-                </div>
-                <br>
-                <div class="mx-auto max-w-2xl lg:mx-0 border-t border-gray-300 pt-5">
-                    <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Eigen projecten</h2>
-                    <p class="mt-2 text-lg text-gray-600">Here are some of the projects I have worked on:</p>
-                </div>
-                <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    @foreach ($projects->where('year', 'Eigen project') as $project)
-                        <a href="{{ route('projects.show', $project->id) }}"
-                            class="project bg-white p-6 rounded-lg shadow-lg">
-                            <h3 class="text-xl font-semibold text-gray-900">{{ $project->title }}</h3>
-                            <p class="mt-2 text-gray-600">{{ $project->description }}</p>
-                        </a>
-                    @endforeach
+            <div id="projects" class="bg-gray-100 py-24 sm:py-32">
+                <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                    <div class="mx-auto max-w-2xl lg:mx-0">
+                        <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Projecten leerjaar
+                            1
+                        </h2>
+                        <p class="mt-2 text-lg text-gray-600">Here are some of the projects I have worked on:</p>
+                    </div>
+                    <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        @foreach ($projects->where('year', '1') as $project)
+                            <a href="{{ route('projects.show', $project->id) }}"
+                                class="project bg-white p-6 rounded-lg shadow-lg">
+                                <h3 class="text-xl font-semibold text-gray-900">{{ $project->title }}</h3>
+                                <p class="mt-2 text-gray-600">{{ $project->description }}</p>
+                            </a>
+                        @endforeach
+                    </div>
+                    <br>
+                    <div class="mx-auto max-w-2xl lg:mx-0 border-t border-gray-300 pt-5">
+                        <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Projecten leerjaar
+                            2
+                        </h2>
+                        <p class="mt-2 text-lg text-gray-600">Here are some of the projects I have worked on:</p>
+                    </div>
+                    <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        @foreach ($projects->where('year', '2') as $project)
+                            <a href="{{ route('projects.show', $project->id) }}"
+                                class="project bg-white p-6 rounded-lg shadow-lg">
+                                <h3 class="text-xl font-semibold text-gray-900">{{ $project->title }}</h3>
+                                <p class="mt-2 text-gray-600">{{ $project->description }}</p>
+                            </a>
+                        @endforeach
+                    </div>
+                    <br>
+                    <div class="mx-auto max-w-2xl lg:mx-0 border-t border-gray-300 pt-5">
+                        <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Eigen projecten
+                        </h2>
+                        <p class="mt-2 text-lg text-gray-600">Here are some of the projects I have worked on:</p>
+                    </div>
+                    <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        @foreach ($projects->where('year', 'Eigen project') as $project)
+                            <a href="{{ route('projects.show', $project->id) }}"
+                                class="project bg-white p-6 rounded-lg shadow-lg">
+                                <h3 class="text-xl font-semibold text-gray-900">{{ $project->title }}</h3>
+                                <p class="mt-2 text-gray-600">{{ $project->description }}</p>
+                            </a>
+                        @endforeach
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div id="contact" class="bg-white py-24 sm:py-32">
-            <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                <div class="mx-auto max-w-2xl lg:mx-0">
-                    <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Contact</h2>
-                    <p class="mt-2 text-lg text-gray-600">Feel free to reach out to me through the following methods:
-                    </p>
-                </div>
-                <div class="mt-10">
-                    <form action="#" method="POST" class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                            <div class="mt-1">
-                                <input type="text" name="name" id="name" autocomplete="name"
-                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+            <div id="contact" class="bg-white py-24 sm:py-32">
+                <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                    <div class="mx-auto max-w-2xl lg:mx-0">
+                        <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Contact</h2>
+                        <p class="mt-2 text-lg text-gray-600">Feel free to reach out to me through the following
+                            methods:
+                        </p>
+                    </div>
+                    <div class="mt-10">
+                        <form action="#" method="POST"
+                            class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                                <div class="mt-1">
+                                    <input type="text" name="name" id="name" autocomplete="name"
+                                        class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                            <div class="mt-1">
-                                <input type="email" name="email" id="email" autocomplete="email"
-                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                                <div class="mt-1">
+                                    <input type="email" name="email" id="email" autocomplete="email"
+                                        class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                </div>
                             </div>
-                        </div>
-                        <div class="sm:col-span-2">
-                            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                            <div class="mt-1">
-                                <textarea id="message" name="message" rows="4"
-                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
+                            <div class="sm:col-span-2">
+                                <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                                <div class="mt-1">
+                                    <textarea id="message" name="message" rows="4"
+                                        class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
+                                </div>
                             </div>
-                        </div>
-                        <div class="sm:col-span-2">
-                            <button type="submit"
-                                class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Send</button>
-                        </div>
-                    </form>
+                            <div class="sm:col-span-2">
+                                <button type="submit"
+                                    class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Send</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <script>
-            document.getElementById('mobile-menu-button').addEventListener('click', function() {
-                var menu = document.getElementById('mobile-menu');
-                menu.classList.toggle('hidden');
-            });
+            <script>
+                document.getElementById('mobile-menu-button').addEventListener('click', function() {
+                    var menu = document.getElementById('mobile-menu');
+                    menu.classList.toggle('hidden');
+                });
 
-            document.getElementById('mobile-menu-close-button').addEventListener('click', function() {
-                var menu = document.getElementById('mobile-menu');
-                menu.classList.add('hidden');
-            });
-        </script>
+                document.getElementById('mobile-menu-close-button').addEventListener('click', function() {
+                    var menu = document.getElementById('mobile-menu');
+                    menu.classList.add('hidden');
+                });
+            </script>
 </body>
 
 </html>

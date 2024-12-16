@@ -30,7 +30,7 @@ class ProjectsController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string',
+            'description' => 'required|string|max:25000',
             'url' => 'required|url',
             'year' => 'required|string',
             'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',

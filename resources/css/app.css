@@ -4,8 +4,9 @@
 
 .crop-top {
     object-fit: cover;
-    object-position: top center;
-    height: 80%;
+    object-position: center;
+    height: 100%;
+    /* width: 100%; */
     /* Adjust this value to crop more from the top */
 }
 
@@ -14,20 +15,24 @@
     object-position: top;
     height: 100%;
     width: 100%;
-    margin-bottom: -10rem;
+    margin-bottom: -30rem;
     clip-path: inset(0 0 33% 0);
     /* Crop the top third */
 }
 
-.shadow-custom {
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+.h-100 {
+    height: 40rem;
 }
 
-.hover-box {
+.shadow-custom {
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.hover-knop {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.hover-box:hover {
+.hover-knop:hover {
     transform: translateY(-10px);
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }

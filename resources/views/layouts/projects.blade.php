@@ -21,7 +21,7 @@
     <div class="min-h-full">
         @include('layouts.navigation')
 
-        <main>
+        <main class="h-full bg-gray-100 flex flex-col items-center justify-center">
 
             {{ $slot }}
 
