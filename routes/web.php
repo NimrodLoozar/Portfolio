@@ -23,12 +23,13 @@ Route::get('/login', function () {
 })->name('login');
 
 // ...existing code...
+Route::get('/project/{id}', [ProjectsController::class, 'show'])->name('projects.show');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/project/new', [ProjectsController::class, 'create'])->name('projects.create');
+    Route::get('/dashboard/projects', [ProjectsController::class, 'index'])->name('projects.index'); // Ensure this line is correct
     Route::post('/project', [ProjectsController::class, 'store'])->name('projects.store');
-    Route::get('/project/{id}', [ProjectsController::class, 'show'])->name('projects.show');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
