@@ -15,6 +15,9 @@
                         <x-nav-link :href="route('projects.index')" :active="request()->routeIs('projects.index')">
                             {{ __('Projects') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('projects.create')" :active="request()->routeIs('projects.create')">
+                            {{ __('Create Project') }}
+                        </x-nav-link>
                     @else
                         <x-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
                             {{ __('Home') }}
@@ -95,6 +98,9 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('projects.index')" :active="request()->routeIs('projects.index')">
                     {{ __('Projects') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('projects.create')" :active="request()->routeIs('projects.create')">
+                    {{ __('Create Project') }}
                 </x-responsive-nav-link>
             @else
                 <x-responsive-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
