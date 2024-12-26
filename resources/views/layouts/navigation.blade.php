@@ -141,3 +141,17 @@
             </div>
         </div>
 </nav>
+
+<script>
+    function toggleTheme() {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme');
+        const switchTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', switchTheme);
+        localStorage.setItem('theme', switchTheme);
+    }
+
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    const html = document.documentElement;
+    html.setAttribute('data-theme', currentTheme);
+</script>
