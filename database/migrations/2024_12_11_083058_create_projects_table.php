@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
+            $table->text('heading1');
+            $table->text('heading2')->nullable();
+            $table->text('heading3')->nullable();
+            $table->text('heading4')->nullable();
             $table->string('url');
             $table->string('year');
             $table->string('banner')->nullable();

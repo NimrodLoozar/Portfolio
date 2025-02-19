@@ -18,13 +18,34 @@ class Projects extends Model
     protected $fillable = [
         'title',
         'description',
+        'heading1',
+        'heading2',
+        'heading3',
+        'heading4',
         'url',
         'year',
-        'banner', // Add this line
-        'images', // Add this line
+        'banner',
+        'images',
     ];
 
     protected $casts = [
-        'images' => 'array', // Add this line
+        'images' => 'array',
     ];
+
+    public function getBannerUrlAttribute()
+    {
+        return $this->banner ? asset('storage/' . $this->banner) : null;
+    }
+
+    public function getImagesUrlAttribute()
+    {
+        return $this->images ? array_map(function ($image) {
+            return asset('storage/' . $image);
+        }, $this->images) : null;
+    }
+
+    public function deleteImage($path)
+    {
+        \Storage::disk('public')->delete($path);
+    }
 }

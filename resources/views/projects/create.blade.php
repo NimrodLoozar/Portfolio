@@ -19,7 +19,39 @@
                     <div class="col-span-full">
                         <label for="description" class="block text-sm font-medium text-gray-900">Description</label>
                         <div class="mt-2">
-                            <textarea name="description" id="description" rows="3" required
+                            <textarea name="description" id="description" rows="3" maxlength="30" required
+                                class="bg-gray-200 px-2 h-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-span-full">
+                        <label for="heading1" class="block text-sm font-medium text-gray-900">Heading 1</label>
+                        <div class="mt-2">
+                            <textarea name="heading1" id="heading1" rows="3" required
+                                class="bg-gray-200 px-2 h-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-span-full">
+                        <label for="heading2" class="block text-sm font-medium text-gray-900">Heading 2</label>
+                        <div class="mt-2">
+                            <textarea name="heading2" id="heading2" rows="3"
+                                class="bg-gray-200 px-2 h-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-span-full">
+                        <label for="heading3" class="block text-sm font-medium text-gray-900">Heading 3</label>
+                        <div class="mt-2">
+                            <textarea name="heading3" id="heading3" rows="3"
+                                class="bg-gray-200 px-2 h-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-span-full">
+                        <label for="heading4" class="block text-sm font-medium text-gray-900">Heading 4</label>
+                        <div class="mt-2">
+                            <textarea name="heading4" id="heading4" rows="3"
                                 class="bg-gray-200 px-2 h-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
                         </div>
                     </div>
@@ -85,8 +117,8 @@
                                     <label for="images"
                                         class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                                         <span>Upload a file</span>
-                                        <input type="file" name="images[]" id="images" multiple class="sr-only"
-                                            onchange="displayFilePreview('images')">
+                                        <input type="file" name="images[]" id="images" multiple
+                                            class="sr-only" onchange="displayFilePreview('images')">
                                     </label>
                                     <p class="pl-1">or drag and drop</p>
                                 </div>

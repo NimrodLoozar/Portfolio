@@ -30,13 +30,20 @@
                         </div>
                         <div class="hidden md:block">
                             <div class="ml-10 flex items-baseline space-x-4">
-                                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                                <a href="/"
-                                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                                    aria-current="page">Home</a>
-                                <a href="/dashboard"
-                                    class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
-                                    aria-current="page">Dashboard</a>
+                                @if (Auth::check() && Auth::user()->role === 'admin')
+                                    <a href="{{ route('welcome') }}"
+                                        class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                                    <a href="{{ route('dashboard') }}"
+                                        class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+                                    <a href="{{ route('projects.index') }}"
+                                        class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                                    <a href="{{ route('projects.create') }}"
+                                        class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Create
+                                        Project</a>
+                                @else
+                                    <a href="{{ route('welcome') }}"
+                                        class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                                @endif
                             </div>
                         </div>
                     </div>
