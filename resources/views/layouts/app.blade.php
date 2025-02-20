@@ -8,15 +8,11 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <link rel="preconnect" href="https://fonts.bunny.net">
-    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet" /> --}}
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 
+    <!-- Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    @vite(['resources/js/app.js'])
 
-    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-        @vite(['resources/js/app.js'])
-    @else
-    @endif
 </head>
 
 <body class="h-full">

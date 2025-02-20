@@ -1,0 +1,54 @@
+body>header {
+  width: 100%;
+}
+
+body>header nav {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  border-bottom: 1px solid #888;
+  color: #fff;
+  justify-content: center;
+  z-index: 2;
+}
+
+body>header nav ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+body>header nav ul li>a {
+  display: inline-block;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: aqua;
+  transition: color 0.5s ease-in-out;
+}
+
+body>header nav ul li>a:hover {
+  color: #ff4500;
+}
+
+body>header nav img {
+  width: 80px;
+}
+
+/* fotos van de download pagina
+*/
+.photo1 {
+  width: 100px;
+  height: auto;
+}
+
+.photo2 {
+  width: 100px;
+  height: auto;
+}
+
+
+/*# sourceMappingURL=style2.css.map */

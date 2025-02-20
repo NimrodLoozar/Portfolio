@@ -319,6 +319,13 @@
                 </div>
             </div>
 
+            <div id="projects" class="bg-gray-100 py-24 sm:py-32">
+                <div class="mx-64 max-w-full px-6 lg:px-8">
+                    <iframe class="w-full h-screen border-4 border-gray-300"
+                        src="{{ asset('ModernKnight/index.html') }}" frameborder="0"></iframe>
+                </div>
+            </div>
+
             <div id="contact" class="bg-white py-24 sm:py-32">
                 <div class="mx-auto max-w-7xl px-6 lg:px-8">
                     <div class="mx-auto max-w-2xl lg:mx-0">

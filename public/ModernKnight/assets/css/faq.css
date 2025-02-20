@@ -1,0 +1,36 @@
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+main.faq {
+  margin-top: 80px;
+}
+
+.accordion {
+  max-width: 90%;
+  width: 90%;
+  margin: auto auto;
+}
+
+section.question {
+  font-size: 20px;
+  margin: 1rem 3rem;
+  max-width: 90%;
+  width: 90%;
+}
+
+section.question h3 {
+  background: #ccc;
+  border-radius: 0 30px;
+  padding: 1rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+section.question .answer {
+  display: none;
+  width: 95%;
+}
+
+/*# sourceMappingURL=faq.css.map */

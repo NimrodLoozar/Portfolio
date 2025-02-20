@@ -1,0 +1,49 @@
+.media-container,
+.media-container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.media-item {
+    flex: 1;
+}
+
+.bubble {
+    border-radius: 0 50px;
+    background-color: #d6d6d6;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+iframe {
+    margin: 0.5rem;
+    border-radius: 0 50px;
+}
+
+section.container.bubble {
+    margin-top: 0.5rem;
+}
+
+label>img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 0 50px;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+.zoom img {
+    transition: all 0.5s ease-in;
+    cursor: zoom-in;
+}
+
+input[type=checkbox]:checked~img {
+    transform: scale(2);
+    margin: 0 auto;
+    cursor: zoom-out;
+}

@@ -1,0 +1,28 @@
+main {
+  display: flex;
+}
+
+h1 {
+  font-size: 80px;
+}
+
+.banner {
+  border-radius: 0 50px;
+}
+
+.bubble {
+  border-radius: 0 50px;
+  background-color: #d6d6d6;
+  margin: 0.5rem;
+}
+
+h3,
+p {
+  padding: 0 1rem;
+}
+
+.img {
+  width: 90%;
+  margin: 1rem;
+  border-radius: 0 60px;
+}
