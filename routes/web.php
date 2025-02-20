@@ -12,15 +12,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
-// ...existing code...
-
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
 
-// ...existing code...
 Route::get('/project/{id}', [ProjectsController::class, 'show'])->name('projects.show');
-
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/projects/new', [ProjectsController::class, 'create'])->name('projects.create'); // Ensure this line is correct

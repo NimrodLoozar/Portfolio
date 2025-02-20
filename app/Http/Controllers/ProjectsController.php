@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Projects;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class ProjectsController extends Controller
 {
@@ -32,17 +33,11 @@ class ProjectsController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string|max:50',
+            'description' => 'required|string|max:65535',
             'heading1' => 'required|string|max:255',
             'heading2' => 'nullable|string|max:255',
             'heading3' => 'nullable|string|max:255',
             'heading4' => 'nullable|string|max:255',
-            'heading5' => 'nullable|string|max:255',
-            'heading6' => 'nullable|string|max:255',
-            'heading7' => 'nullable|string|max:255',
-            'heading8' => 'nullable|string|max:255',
-            'heading9' => 'nullable|string|max:255',
-            'heading10' => 'nullable|string|max:255',
             'url' => 'required|url',
             'year' => 'required|string',
             'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -83,16 +78,17 @@ class ProjectsController extends Controller
         $project = Projects::findOrFail($id);
         return view('projects.edit', compact('project'));
     }
+
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        $project = Projects::findOrFail($id);
+        Log::info('Update method called', ['id' => $id, 'request' => $request->all()]);
 
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string|max:30',
+            'description' => 'required|string|max:65535',
             'heading1' => 'required|string|max:255',
             'heading2' => 'nullable|string|max:255',
             'heading3' => 'nullable|string|max:255',
@@ -103,26 +99,38 @@ class ProjectsController extends Controller
             'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $data = $request->except(['_token', '_method']);
+        $data = $request->except(['banner', 'images']);
+        Log::info('Validated data', ['data' => $data]);
 
-        if ($request->file('banner')) {
+        $project = Projects::findOrFail($id);
+        Log::info('Project found', ['project' => $project]);
+
+        if ($request->hasFile('banner')) {
+            Log::info('Banner file detected');
             if ($project->banner) {
-                $project->deleteImage($project->banner);
+                Log::info('Deleting old banner', ['banner' => $project->banner]);
+                Storage::disk('public')->delete($project->banner);
             }
             $data['banner'] = $request->file('banner')->store('banners', 'public');
+            Log::info('New banner stored', ['banner' => $data['banner']]);
         }
 
-        if ($request->file('images')) {
-            foreach ($project->images as $image) {
-                $project->deleteImage($image);
+        if ($request->hasFile('images')) {
+            Log::info('Images detected');
+            if ($project->images) {
+                foreach ($project->images as $image) {
+                    Log::info('Deleting old image', ['image' => $image]);
+                    Storage::disk('public')->delete($image);
+                }
             }
-
             $data['images'] = array_map(function ($image) {
                 return $image->store('images', 'public');
             }, $request->file('images'));
+            Log::info('New images stored', ['images' => $data['images']]);
         }
 
         $project->update($data);
+        Log::info('Project updated successfully', ['project' => $project]);
 
         return redirect()->route('dashboard')->with('success', 'Project updated successfully.');
     }

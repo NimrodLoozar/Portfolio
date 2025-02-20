@@ -10,6 +10,7 @@
         <form action="{{ route('projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
+            <input type="hidden" name="_method" value="PATCH">
 
             <div class="mb-4">
                 <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
@@ -17,10 +18,17 @@
                     class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
             </div>
 
-            <div class="mb-4">
-                <label for="year" class="block text-sm font-medium text-gray-700">Year</label>
-                <input type="text" name="year" id="year" value="{{ $project->year }}"
-                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+            <div class="col-span-full">
+                <label for="year" class="block text-sm font-medium text-gray-900">Year</label>
+                <div class="mt-2">
+                    <select name="year" id="year" required
+                        class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <option value="1" {{ $project->year == '1' ? 'selected' : '' }}>Leerjaar 1</option>
+                        <option value="2" {{ $project->year == '2' ? 'selected' : '' }}>Leerjaar 2</option>
+                        <option value="Eigen project" {{ $project->year == 'Eigen project' ? 'selected' : '' }}>Eigen
+                            project</option>
+                    </select>
+                </div>
             </div>
 
             <div class="mb-4">
@@ -59,17 +67,6 @@
                     class="mt-1 px-4 pt-4 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">{{ $project->heading4 }}</textarea>
             </div>
 
-            <div class="mb-4">
-                <a href="{{ url('/projects/' . $project->id) }}"
-                    class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
-                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
-                        </path>
-                    </svg>
-                    Back
-                </a>
-            </div>
 
             <button type="submit"
                 class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
@@ -83,9 +80,22 @@
 
         </form>
 
+        <div class="mt-4">
+            <a href="{{ route('projects.show', $project->id) }}"
+                class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                    </path>
+                </svg>
+                Back
+            </a>
+        </div>
+
         <form action="{{ route('projects.destroy', $project->id) }}" method="POST" class="inline">
             @csrf
             @method('DELETE')
+            <input type="hidden" name="_method" value="DELETE">
             <button type="submit"
                 class="inline-flex items-center mt-4 px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"

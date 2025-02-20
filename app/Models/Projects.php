@@ -43,9 +43,4 @@ class Projects extends Model
             return asset('storage/' . $image);
         }, $this->images) : null;
     }
-
-    public function deleteImage($path)
-    {
-        \Storage::disk('public')->delete($path);
-    }
 }
