@@ -62,8 +62,8 @@
         });
         observer.observe(photo);
 
-        // Skills grid animation
-        var grids = document.querySelectorAll('#skills-grid');
+        // FadeInLeft animation
+        var grids = document.querySelectorAll('#fade-animationLeft');
         grids.forEach(function(grid) {
             if (!grid) return;
             var animated = false;

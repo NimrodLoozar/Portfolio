@@ -6,7 +6,7 @@
         <h3 class="text-2xl font-bold mb-8 text-blue-700 dark:text-blue-300 text-center">
             Programming Languages</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 skillsGrid"
-            data-skill-group="languages" id="skills-grid">
+            data-skill-group="languages" id="fade-animationLeft">
             @foreach ($skillsLanguages as $skill)
                 <x-skill-card :name="$skill['name']" :icon="$skill['icon']" :color="$skill['color']" :bg="$skill['bg']" :border="$skill['border']"
                     :stroke="$skill['stroke']" :target="$skill['target']" :desc="$skill['desc']" />
@@ -20,7 +20,7 @@
         <h3 class="text-2xl font-bold mb-8 text-purple-700 dark:text-purple-300 text-center">
             Libraries / Version Control</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 skillsGrid"
-            data-skill-group="libraries" id="skills-grid">
+            data-skill-group="libraries" id="fade-animationLeft">
             @foreach ($skillsLibraries as $skill)
                 <x-skill-card :name="$skill['name']" :icon="$skill['icon']" :color="$skill['color']" :bg="$skill['bg']"
                     :border="$skill['border']" :stroke="$skill['stroke']" :target="$skill['target']" :desc="$skill['desc']" />
@@ -33,7 +33,7 @@
         class="section-content fade-section hidden flex-1 bg-gradient-to-br from-pink-50 to-pink-100 dark:from-pink-900/20 dark:to-pink-800/20 border border-pink-200 dark:border-pink-700 rounded-xl p-6 shadow-lg">
         <h3 class="text-2xl font-bold mb-8 text-pink-700 dark:text-pink-300 text-center">Social Media</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 skillsGrid"
-            data-skill-group="social" id="skills-grid">
+            data-skill-group="social" id="fade-animationLeft">
             @foreach ($skillsSocial as $skill)
                 <x-skill-card :name="$skill['name']" :icon="$skill['icon']" :color="$skill['color']" :bg="$skill['bg']"
                     :border="$skill['border']" :stroke="$skill['stroke']" :target="$skill['target']" :desc="$skill['desc']" :showChart="false" />

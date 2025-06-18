@@ -1,14 +1,15 @@
 @props(['projects'])
 
 <div id="projects" class="py-24 sm:py-32">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div id="fade-animationLeft" class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:mx-0">
             <h2 class="text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-100 sm:text-5xl">
                 Projecten leerjaar 1
             </h2>
             <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">Here are some of the projects I have worked on:</p>
         </div>
-        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div id="fade-animationRight"
+            class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($projects->where('year', '1') as $project)
                 <a href="{{ route('projects.show', $project->id) }}"
                     class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -66,3 +67,43 @@
             frameborder="0"></iframe>
     </div>
 </div>
+
+<script>
+    // FadeInLeft animation
+    var grids = document.querySelectorAll('#fade-animationLeft');
+    grids.forEach(function(grid) {
+        if (!grid) return;
+        var animated = false;
+        var skillObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting && !animated) {
+                    grid.classList.add('animate__animated', 'animate__fadeInLeft');
+                    animated = true;
+                    skillObserver.disconnect();
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+        skillObserver.observe(grid);
+    });
+
+    // FadeInRight animation
+    var grids = document.querySelectorAll('#fade-animationRight');
+    grids.forEach(function(grid) {
+        if (!grid) return;
+        var animated = false;
+        var skillObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting && !animated) {
+                    grid.classList.add('animate__animated', 'animate__fadeInRight');
+                    animated = true;
+                    skillObserver.disconnect();
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+        skillObserver.observe(grid);
+    });
+</script>

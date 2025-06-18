@@ -13,7 +13,8 @@
     };
 @endphp
 
-<div class="relative" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">
+<div class="relative" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false"
+    @close-dropdowns.window="open = false" @keydown.escape.window="open = false">
     <div @click="open = ! open">
         {{ $trigger }}
     </div>

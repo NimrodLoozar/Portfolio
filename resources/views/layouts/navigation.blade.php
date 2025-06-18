@@ -1,4 +1,5 @@
-<nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+<nav x-data="{ open: false }" @click.outside="open = false" @close-mobile-menu.window="open = false"
+    @keydown.escape.window="open = false" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -18,10 +19,12 @@
                         <x-nav-link :href="route('projects.create')" :active="request()->routeIs('projects.create')">
                             {{ __('Create Project') }}
                         </x-nav-link>
+                        <x-theme-toggle />
                     @else
                         <x-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
                             {{ __('Home') }}
                         </x-nav-link>
+                        <x-theme-toggle />
                     @endif
                 </div>
             </div>
@@ -141,17 +144,3 @@
             </div>
         </div>
 </nav>
-
-<script>
-    function toggleTheme() {
-        const html = document.documentElement;
-        const currentTheme = html.getAttribute('data-theme');
-        const switchTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        html.setAttribute('data-theme', switchTheme);
-        localStorage.setItem('theme', switchTheme);
-    }
-
-    const currentTheme = localStorage.getItem('theme') || 'dark';
-    const html = document.documentElement;
-    html.setAttribute('data-theme', currentTheme);
-</script>

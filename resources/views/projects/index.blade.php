@@ -8,7 +8,7 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         @foreach ($projects as $project)
-            <div class="bg-white p-4 rounded-lg shadow-custom">
+            <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-custom">
                 <h2 class="text-xl font-semibold">{{ $project->title }}</h2>
                 <p class="text-gray-600">{{ $project->description }}</p>
                 <form action="{{ route('projects.show', $project) }}" method="GET">

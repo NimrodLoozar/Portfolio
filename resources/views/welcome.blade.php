@@ -66,8 +66,8 @@
 </head>
 
 <body
-    class="font-sans antialiased bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
-    <div class="bg-white dark:bg-gray-900 min-h-screen transition-colors duration-300">
+    class="font-sans antialiased bg-gray-200 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <div class="min-h-screen transition-colors duration-300">
         <header
             class="fixed inset-x-0 top-0 z-50 bg-gray-900/10 dark:bg-gray-800/20 backdrop-blur-lg shadow-lg transition-colors duration-300">
             <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">

@@ -9,6 +9,10 @@ use App\Http\Controllers\ThemeLogController;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
+Route::get('/dropdown-test', function () {
+    return view('dropdown-test');
+})->name('dropdown.test');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 });

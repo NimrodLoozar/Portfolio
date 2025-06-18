@@ -7,13 +7,13 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
+            <div class="bg-gray-100 dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
+                <div class="p-6 sm:px-20 border-b border-gray-200 dark:border-gray-700">
                     <div class="mt-8 text-2xl">
                         Welcome to your Dashboard!
                     </div>
 
-                    <div class="mt-6 text-gray-500">
+                    <div class="mt-6 text-gray-500 dark:text-gray-400">
                         Here you can manage your projects.
                     </div>
 
