@@ -86,53 +86,67 @@ class ProjectsController extends Controller
     {
         Log::info('Update method called', ['id' => $id, 'request' => $request->all()]);
 
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string|max:30',
-            'heading1' => 'required|string|max:255',
-            'heading2' => 'nullable|string|max:255',
-            'heading3' => 'nullable|string|max:255',
-            'heading4' => 'nullable|string|max:255',
-            'url' => 'required|url',
-            'year' => 'required|string',
-            'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+        try {
+            $request->validate([
+                'title' => 'required|string|max:255',
+                'description' => 'required|string',
+                'heading1' => 'required|string',
+                'heading2' => 'nullable|string',
+                'heading3' => 'nullable|string',
+                'heading4' => 'nullable|string',
+                'url' => 'nullable|url',
+                'year' => 'required|string',
+                'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
 
-        $data = $request->except(['banner', 'images']);
-        Log::info('Validated data', ['data' => $data]);
+            $data = $request->except(['banner', 'images']);
+            Log::info('Validated data', ['data' => $data]);
 
-        $project = Projects::findOrFail($id);
-        Log::info('Project found', ['project' => $project]);
+            $project = Projects::findOrFail($id);
+            Log::info('Project found', ['project' => $project]);
 
-        if ($request->hasFile('banner')) {
-            Log::info('Banner file detected');
-            if ($project->banner) {
-                Log::info('Deleting old banner', ['banner' => $project->banner]);
-                Storage::disk('public')->delete($project->banner);
-            }
-            $data['banner'] = $request->file('banner')->store('banners', 'public');
-            Log::info('New banner stored', ['banner' => $data['banner']]);
-        }
-
-        if ($request->hasFile('images')) {
-            Log::info('Images detected');
-            if ($project->images) {
-                foreach ($project->images as $image) {
-                    Log::info('Deleting old image', ['image' => $image]);
-                    Storage::disk('public')->delete($image);
+            if ($request->hasFile('banner')) {
+                Log::info('Banner file detected');
+                if ($project->banner) {
+                    Log::info('Deleting old banner', ['banner' => $project->banner]);
+                    Storage::disk('public')->delete($project->banner);
                 }
+                $data['banner'] = $request->file('banner')->store('banners', 'public');
+                Log::info('New banner stored', ['banner' => $data['banner']]);
             }
-            $data['images'] = array_map(function ($image) {
-                return $image->store('images', 'public');
-            }, $request->file('images'));
-            Log::info('New images stored', ['images' => $data['images']]);
+
+            if ($request->hasFile('images')) {
+                Log::info('Images detected');
+                if ($project->images) {
+                    foreach ($project->images as $image) {
+                        Log::info('Deleting old image', ['image' => $image]);
+                        Storage::disk('public')->delete($image);
+                    }
+                }
+                $data['images'] = array_map(function ($image) {
+                    return $image->store('images', 'public');
+                }, $request->file('images'));
+                Log::info('New images stored', ['images' => $data['images']]);
+            }
+
+            $updated = $project->update($data);
+            Log::info('Project update result', ['updated' => $updated, 'project' => $project->fresh()]);
+
+            if ($updated) {
+                Log::info('Project updated successfully', ['project' => $project]);
+                return redirect()->route('dashboard')->with('success', 'Project updated successfully.');
+            } else {
+                Log::error('Project update failed');
+                return redirect()->back()->with('error', 'Failed to update project.');
+            }
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            Log::error('Validation failed', ['errors' => $e->errors()]);
+            return redirect()->back()->withErrors($e->errors())->withInput();
+        } catch (\Exception $e) {
+            Log::error('Update failed with exception', ['error' => $e->getMessage(), 'trace' => $e->getTraceAsString()]);
+            return redirect()->back()->with('error', 'An error occurred while updating the project: ' . $e->getMessage());
         }
-
-        $project->update($data);
-        Log::info('Project updated successfully', ['project' => $project]);
-
-        return redirect()->route('dashboard')->with('success', 'Project updated successfully.');
     }
 
     /**

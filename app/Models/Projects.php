@@ -43,4 +43,11 @@ class Projects extends Model
             return asset('storage/' . $image);
         }, $this->images) : null;
     }
+
+    public function deleteImage($imagePath)
+    {
+        if ($imagePath && \Storage::disk('public')->exists($imagePath)) {
+            \Storage::disk('public')->delete($imagePath);
+        }
+    }
 }
