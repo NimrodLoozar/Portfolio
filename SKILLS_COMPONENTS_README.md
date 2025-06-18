@@ -12,15 +12,17 @@ This document describes the Laravel components created for the Skills Breakdown 
 The main component that contains all skill sections (Programming Languages, Libraries/Version Control, and Social Media).
 
 #### Usage:
+
 ```blade
 <x-skills-breakdown />
 ```
 
 #### Features:
-- Contains predefined skill data for all three categories
-- Automatically renders all sections with proper styling
-- Includes fade transition styles
-- Uses the SkillCard component for individual skills
+
+-   Contains predefined skill data for all three categories
+-   Automatically renders all sections with proper styling
+-   Includes fade transition styles
+-   Uses the SkillCard component for individual skills
 
 ### 2. SkillCard Component
 
@@ -30,18 +32,22 @@ The main component that contains all skill sections (Programming Languages, Libr
 A reusable component for individual skill items with progress circles.
 
 #### Props:
-- `name` (string): The skill name
-- `icon` (string): Path to the skill icon
-- `color` (string): Tailwind color class name
-- `bg` (string): Background gradient classes
-- `border` (string): Border color classes
-- `stroke` (array): Array with two hex colors for progress circle
-- `target` (int): Target percentage (0-100)
-- `desc` (string): Skill description
+
+-   `name` (string): The skill name
+-   `icon` (string): Path to the skill icon
+-   `color` (string): Tailwind color class name
+-   `bg` (string): Background gradient classes
+-   `border` (string): Border color classes
+-   `stroke` (array): Array with two hex colors for progress circle
+-   `target` (int): Target percentage (0-100)
+-   `desc` (string): Skill description
+-   `showChart` (bool, optional): Whether to show progress chart (default: true)
 
 #### Usage:
+
 ```blade
-<x-skill-card 
+<!-- With progress chart (default) -->
+<x-skill-card
     name="Laravel"
     icon="img/laravel-2.svg"
     color="red"
@@ -51,6 +57,19 @@ A reusable component for individual skill items with progress circles.
     :target="75"
     desc="MVC framework & APIs"
 />
+
+<!-- Without progress chart (for social media, etc.) -->
+<x-skill-card
+    name="Facebook"
+    icon="img/facebook-3-2.svg"
+    color="blue"
+    bg="from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20"
+    border="border-blue-200 dark:border-blue-700"
+    :stroke="['#93c5fd', '#2563eb']"
+    :target="85"
+    desc="Social media platform"
+    :showChart="false"
+/>
 ```
 
 ## Replacing Existing Code
@@ -58,6 +77,7 @@ A reusable component for individual skill items with progress circles.
 To replace the existing Skills Breakdown section in `welcome.blade.php`:
 
 1. **Keep the section buttons** (they control which section is visible):
+
 ```blade
 <div class="flex flex-wrap justify-center gap-4 mb-8">
     <button id="btn-languages" class="section-btn active px-6 py-2 rounded-lg font-semibold bg-blue-600 text-white shadow hover:bg-blue-700 transition" data-section="languages">Programming Languages</button>
@@ -67,6 +87,7 @@ To replace the existing Skills Breakdown section in `welcome.blade.php`:
 ```
 
 2. **Replace the entire section content** (from line ~290 to ~660) with:
+
 ```blade
 <x-skills-breakdown />
 ```
@@ -82,6 +103,7 @@ To replace the existing Skills Breakdown section in `welcome.blade.php`:
 ## Customization
 
 ### Adding New Skills
+
 Edit the arrays in `app/View/Components/SkillsBreakdown.php`:
 
 ```php
@@ -98,12 +120,21 @@ $this->skillsLanguages[] = [
 ```
 
 ### Creating New Skill Categories
+
 1. Add a new array property to the SkillsBreakdown component
 2. Add the corresponding section in the component view
 3. Add a new button to control the section visibility
 
 ## Dependencies
 
-- Tailwind CSS for styling
-- Existing JavaScript for section switching functionality
-- Asset helper for icon paths
+-   Tailwind CSS for styling
+-   Existing JavaScript for section switching functionality
+-   Asset helper for icon paths
+
+## Features
+
+### Conditional Progress Charts
+
+-   Programming Languages and Libraries sections show progress charts by default
+-   Social Media section displays without progress charts for a cleaner look
+-   Use the `showChart` parameter to control chart visibility per skill card

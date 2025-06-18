@@ -36,7 +36,7 @@
             data-skill-group="social" id="skills-grid">
             @foreach ($skillsSocial as $skill)
                 <x-skill-card :name="$skill['name']" :icon="$skill['icon']" :color="$skill['color']" :bg="$skill['bg']"
-                    :border="$skill['border']" :stroke="$skill['stroke']" :target="$skill['target']" :desc="$skill['desc']" />
+                    :border="$skill['border']" :stroke="$skill['stroke']" :target="$skill['target']" :desc="$skill['desc']" :showChart="false" />
             @endforeach
         </div>
     </div>

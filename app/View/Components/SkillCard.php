@@ -15,6 +15,7 @@ class SkillCard extends Component
     public array $stroke;
     public int $target;
     public string $desc;
+    public bool $showChart;
 
     /**
      * Create a new component instance.
@@ -27,7 +28,8 @@ class SkillCard extends Component
         string $border,
         array $stroke,
         int $target,
-        string $desc
+        string $desc,
+        bool $showChart = true
     ) {
         $this->name = $name;
         $this->icon = $icon;
@@ -37,6 +39,7 @@ class SkillCard extends Component
         $this->stroke = $stroke;
         $this->target = $target;
         $this->desc = $desc;
+        $this->showChart = $showChart;
     }
 
     /**

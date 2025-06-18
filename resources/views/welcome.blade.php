@@ -18,9 +18,9 @@
     <!-- Styles / Scripts -->
 
     <script>
-        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
-                '(prefers-color-scheme: dark)').matches)) {
+        // Initial theme check to prevent FOUC (Flash of Unstyled Content)
+        if (localStorage.getItem('color-theme') === 'dark' ||
+            (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
         } else {
             document.documentElement.classList.remove('dark');
@@ -100,31 +100,7 @@
                     <a href="#"
                         class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white transition-colors duration-200">Company</a>
                     <!-- Enhanced Theme toggle button -->
-                    {{-- <button id="theme-toggle" type="button"
-                        class="theme-toggle-btn relative inline-flex items-center justify-center w-11 h-6 bg-gray-200 dark:bg-gray-700 rounded-full transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 hover:bg-gray-300 dark:hover:bg-gray-600 group">
-                        <span class="sr-only">Toggle theme</span>
-
-                        <!-- Toggle slider -->
-                        <span
-                            class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full transition-transform duration-300 ease-in-out transform translate-x-0 dark:translate-x-5 shadow-lg">
-                            <!-- Sun icon (light mode) -->
-                            <svg id="sun-icon"
-                                class="absolute inset-0 w-5 h-5 text-yellow-500 transition-all duration-300 dark:opacity-0 dark:scale-75"
-                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <!-- Moon icon (dark mode) -->
-                            <svg id="moon-icon"
-                                class="absolute inset-0 w-5 h-5 text-blue-400 transition-all duration-300 opacity-0 scale-75 dark:opacity-100 dark:scale-100"
-                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                            </svg>
-                        </span>
-                    </button> --}}
                     <x-theme-toggle />
-
                 </div>
                 @auth
                     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -247,7 +223,7 @@
                         <span id="cursor" class="text-blue-600 dark:text-blue-400 animate-pulse">|</span>
                     </div>
 
-                    <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
+                    <p class="text-xl text-gray-300 mb-8">
                         A passionate student developer with expertise in Laravel, PHP, Tailwind CSS, and modern frontend
                         technologies. Currently pursuing Software Development with a strong focus on full-stack web
                         applications.
@@ -271,205 +247,22 @@
             </section>
         </div>
 
-        <div class="py-24 sm:py-32">
-            <div class="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col items-center">
-                <div id="about" class="flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-28">
-                    <div class="mx-auto max-w-2xl lg:mx-0 lg:w-2/3">
-                        <h2
-                            class="text-pretty text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-100 sm:text-5xl">
-                            Over
-                            mij</h2>
-                        <p class="mt-2 text-lg/8 text-gray-600 dark:text-gray-300">Ik ben in <strong>2006</strong> in
-                            <strong>Hongarije</strong> geboren, na mijn tiende zijn we naar nederland verhuizd, sinds
-                            dien leef ik hier. In de vakanties ga bijna elke keer naar Hongarije toe om familie te
-                            ontmoeten. In 2023 heb ik mijn middelbare afgerond op <strong>mavo</strong> niveau in Soest
-                            op het <strong class="text-green-500"><a href="https://griftland.nl/"
-                                    target="_blank">Griftland College</a></strong>. Daarna ben ik op <strong
-                                class="text-blue-500"><a href="https://www.mboutrecht.nl/academies/ict-academie/"
-                                    target="_blank">MBO Utrecht ICT Academie</a></strong> gaan studeren voor <strong><a
-                                    href="https://www.mboutrecht.nl/opleidingen/software-developer/"
-                                    target="_blank">Software developper niveau 4</a></strong>.
-                        </p>
-                    </div>
-                    <div class="lg:w-1/3 flex justify-center lg:justify-end">
-                        <img id="about-photo" src="{{ asset('img/20240807_185820.jpg') }}" alt="Your Name"
-                            class="w-3/4 lg:w-full scale-110 object-cover shadow-[10px_10px_20px_rgba(0,0,0,0.5)] rounded-lg dark:shadow-[10px_10px_20px_rgba(0,0,0,0.8)]"
-                            style="opacity:0;">
-                    </div>
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            var photo = document.getElementById('about-photo');
-                            if (!photo) return;
-                            var observer = new IntersectionObserver(function(entries) {
-                                entries.forEach(function(entry) {
-                                    if (entry.isIntersecting) {
-                                        photo.classList.add('animate__animated', 'animate__fadeInBottomRight');
-                                        photo.style.opacity = 1;
-                                        observer.disconnect();
-                                    }
-                                });
-                            }, {
-                                threshold: 0.5
-                            });
-                            observer.observe(photo);
-                        });
-                    </script>
-                </div>
+        <!-- About Section Component -->
+        <x-about-section />
+        <!-- Projects Section Component -->
+        <x-projects-section :projects="$projects" />
 
-                <div class="w-full flex flex-col gap-8 mt-16 lg:mt-24 mb-8">
-                    <!-- Section Buttons -->
-                    <div class="w-full flex justify-center gap-4 mb-8">
-                        <button id="btn-languages"
-                            class="section-btn px-6 py-2 rounded-lg font-semibold bg-blue-600 text-white shadow hover:bg-blue-700 transition"
-                            data-section="languages">Programming Languages</button>
-                        <button id="btn-libraries"
-                            class="section-btn px-6 py-2 rounded-lg font-semibold bg-purple-600 text-white shadow hover:bg-purple-700 transition"
-                            data-section="libraries">Libraries / Version Control</button>
-                        <button id="btn-social"
-                            class="section-btn px-6 py-2 rounded-lg font-semibold bg-pink-600 text-white shadow hover:bg-pink-700 transition"
-                            data-section="social">Social Media</button>
-                    </div>
+        <!-- Contact Section Component -->
+        <x-contact-section />
+    </div>
 
-                    <!-- Section Contents (Skills Breakdown) -->
-                    <x-skills-breakdown />
-
-                    <div id="projects" class="bg-gray-100 dark:bg-gray-900 py-24 sm:py-32">
-                        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                            <div class="mx-auto max-w-2xl lg:mx-0">
-                                <h2
-                                    class="text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-100 sm:text-5xl">
-                                    Projecten
-                                    leerjaar
-                                    1
-                                </h2>
-                                <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">Here are some of the projects
-                                    I have worked on:
-                                </p>
-                            </div>
-                            <div
-                                class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                                @foreach ($projects->where('year', '1') as $project)
-                                    <a href="{{ route('projects.show', $project->id) }}"
-                                        class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100">
-                                            {{ $project->title }}</h3>
-                                        <p class="mt-2 text-gray-600 dark:text-gray-300">{{ $project->description }}
-                                        </p>
-                                    </a>
-                                @endforeach
-                            </div>
-                            <br>
-                            <div class="mx-auto max-w-2xl lg:mx-0 border-t border-gray-300 dark:border-gray-700 pt-5">
-                                <h2
-                                    class="text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-100 sm:text-5xl">
-                                    Projecten
-                                    leerjaar
-                                    2
-                                </h2>
-                                <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">Here are some of the projects
-                                    I have worked on:
-                                </p>
-                            </div>
-                            <div
-                                class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                                @foreach ($projects->where('year', '2') as $project)
-                                    <a href="{{ route('projects.show', $project->id) }}"
-                                        class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100">
-                                            {{ $project->title }}</h3>
-                                        <p class="mt-2 text-gray-600 dark:text-gray-300">{{ $project->description }}
-                                        </p>
-                                    </a>
-                                @endforeach
-                            </div>
-                            <br>
-                            <div class="mx-auto max-w-2xl lg:mx-0 border-t border-gray-300 dark:border-gray-700 pt-5">
-                                <h2
-                                    class="text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-100 sm:text-5xl">
-                                    Eigen
-                                    projecten
-                                </h2>
-                                <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">Here are some of the projects
-                                    I have worked on:
-                                </p>
-                            </div>
-                            <div
-                                class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                                @foreach ($projects->where('year', 'Eigen project') as $project)
-                                    <a href="{{ route('projects.show', $project->id) }}"
-                                        class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100">
-                                            {{ $project->title }}</h3>
-                                        <p class="mt-2 text-gray-600 dark:text-gray-300">{{ $project->description }}
-                                        </p>
-                                    </a>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="projects" class="bg-gray-100 py-24 sm:py-32">
-                        <div class="mx-64 max-w-full px-6 lg:px-8">
-                            <iframe class="w-full h-screen border-4 border-gray-300"
-                                src="{{ asset('ModernKnight/index.html') }}" frameborder="0"></iframe>
-                        </div>
-                    </div>
-
-                    <div id="contact" class="bg-white py-24 sm:py-32">
-                        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                            <div class="mx-auto max-w-2xl lg:mx-0">
-                                <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Contact
-                                </h2>
-                                <p class="mt-2 text-lg text-gray-600">Feel free to reach out to me through the
-                                    following
-                                    methods:
-                                </p>
-                            </div>
-                            <div class="mt-10">
-                                <form action="#" method="POST"
-                                    class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
-                                    <div>
-                                        <label for="name"
-                                            class="block text-sm font-medium text-gray-700">Name</label>
-                                        <div class="mt-1">
-                                            <input type="text" name="name" id="name" autocomplete="name"
-                                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <label for="email"
-                                            class="block text-sm font-medium text-gray-700">Email</label>
-                                        <div class="mt-1">
-                                            <input type="email" name="email" id="email" autocomplete="email"
-                                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                                        </div>
-                                    </div>
-                                    <div class="sm:col-span-2">
-                                        <label for="message"
-                                            class="block text-sm font-medium text-gray-700">Message</label>
-                                        <div class="mt-1">
-                                            <textarea id="message" name="message" rows="4"
-                                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="sm:col-span-2">
-                                        <button type="submit"
-                                            class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Send</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto text-center">
+            <p class="text-sm">© {{ date('Y') }} F.Nimród Lobozár. All rights reserved.</p>
+            <p class="text-xs mt-2">Made with <span class="text-red-500">&hearts;</span> using Laravel, PHP, and
+                Tailwind CSS.</p>
         </div>
-        <footer class="bg-gray-900 text-white py-8">
-            <div class="container mx-auto text-center">
-                <p class="text-sm">© {{ date('Y') }} F.Nimród Lobozár. All rights reserved.</p>
-                <p class="text-xs mt-2">Made with <span class="text-red-500">&hearts;</span> using Laravel, PHP, and
-                    Tailwind CSS.</p>
-            </div>
-        </footer>
+    </footer>
     </div>
     <script>
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
@@ -480,27 +273,6 @@
         document.getElementById('mobile-menu-close-button').addEventListener('click', function() {
             var menu = document.getElementById('mobile-menu');
             menu.classList.add('hidden');
-        });
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var grids = document.querySelectorAll('#skills-grid');
-            grids.forEach(function(grid) {
-                if (!grid) return;
-                var animated = false;
-                var observer = new IntersectionObserver(function(entries) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting && !animated) {
-                            grid.classList.add('animate__animated', 'animate__fadeInLeft');
-                            animated = true;
-                            observer.disconnect();
-                        }
-                    });
-                }, {
-                    threshold: 0.3
-                });
-                observer.observe(grid);
-            });
         });
     </script>
 
