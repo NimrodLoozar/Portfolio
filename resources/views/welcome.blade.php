@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html id="theme-toggle" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
@@ -16,6 +16,17 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
     <!-- Styles / Scripts -->
+
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
@@ -89,7 +100,7 @@
                     <a href="#"
                         class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white transition-colors duration-200">Company</a>
                     <!-- Enhanced Theme toggle button -->
-                    <button id="theme-toggle" type="button"
+                    {{-- <button id="theme-toggle" type="button"
                         class="theme-toggle-btn relative inline-flex items-center justify-center w-11 h-6 bg-gray-200 dark:bg-gray-700 rounded-full transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 hover:bg-gray-300 dark:hover:bg-gray-600 group">
                         <span class="sr-only">Toggle theme</span>
 
@@ -111,7 +122,9 @@
                                 <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                             </svg>
                         </span>
-                    </button>
+                    </button> --}}
+                    <x-theme-toggle />
+
                 </div>
                 @auth
                     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -160,7 +173,7 @@
                                 <a href="#"
                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800">Company</a>
                                 <!-- Enhanced Mobile theme toggle -->
-                                <div class="-mx-3 px-3 py-2">
+                                {{-- <div class="-mx-3 px-3 py-2">
                                     <div class="flex items-center justify-between">
                                         <span
                                             class="text-base/7 font-semibold text-gray-900 dark:text-white">Thema:</span>
@@ -190,7 +203,7 @@
                                             </span>
                                         </button>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="py-6">
                                 <a href="#"
@@ -494,167 +507,6 @@
     <!-- Fallback theme toggle script -->
     <script>
         // Immediate theme toggle fallback
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('=== FALLBACK THEME TOGGLE SCRIPT LOADED ===');
-
-            // Send fallback init log to Laravel
-            fetch('/log-theme-event', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content || ''
-                },
-                body: JSON.stringify({
-                    event: 'fallback_init',
-                    message: 'Fallback theme toggle script loaded',
-                    timestamp: new Date().toISOString()
-                })
-            }).catch(e => console.log('Failed to log fallback init to Laravel:', e));
-
-            function setupThemeToggle() {
-                console.log('=== SETTING UP FALLBACK THEME TOGGLE ===');
-                const themeToggle = document.getElementById('theme-toggle');
-                console.log('Fallback: Theme toggle button found:', !!themeToggle);
-
-                if (themeToggle) {
-                    console.log('Fallback: Adding event listener to theme toggle');
-
-                    // Send button found log
-                    fetch('/log-theme-event', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content || ''
-                        },
-                        body: JSON.stringify({
-                            event: 'fallback_button_found',
-                            message: 'Fallback: Theme toggle button found and listener added',
-                            timestamp: new Date().toISOString()
-                        })
-                    }).catch(e => console.log('Failed to log button found to Laravel:', e));
-
-                    themeToggle.addEventListener('click', function(e) {
-                        console.log('=== FALLBACK: THEME TOGGLE CLICKED ===');
-                        e.preventDefault();
-
-                        // Send click log to Laravel
-                        fetch('/log-theme-event', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')
-                                    ?.content || ''
-                            },
-                            body: JSON.stringify({
-                                event: 'fallback_button_clicked',
-                                message: 'Fallback: Theme toggle button clicked',
-                                timestamp: new Date().toISOString()
-                            })
-                        }).catch(e => console.log('Failed to log fallback click to Laravel:', e));
-
-                        const isDark = document.documentElement.classList.contains('dark');
-                        console.log('Fallback: Current state is dark:', isDark);
-                        console.log('Fallback: Current document classes:', document.documentElement
-                            .classList.toString());
-
-                        if (isDark) {
-                            console.log('Fallback: Switching to light mode...');
-                            document.documentElement.classList.remove('dark');
-                            localStorage.setItem('theme', 'light');
-                            console.log('Fallback: Switched to light mode');
-
-                            // Log to Laravel
-                            fetch('/log-theme-event', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                    'X-CSRF-TOKEN': document.querySelector(
-                                        'meta[name="csrf-token"]')?.content || ''
-                                },
-                                body: JSON.stringify({
-                                    event: 'fallback_theme_switch',
-                                    message: 'Fallback: Switched to light mode',
-                                    data: {
-                                        theme: 'light'
-                                    },
-                                    timestamp: new Date().toISOString()
-                                })
-                            }).catch(e => console.log('Failed to log theme switch to Laravel:', e));
-                        } else {
-                            console.log('Fallback: Switching to dark mode...');
-                            document.documentElement.classList.add('dark');
-                            localStorage.setItem('theme', 'dark');
-                            console.log('Fallback: Switched to dark mode');
-
-                            // Log to Laravel
-                            fetch('/log-theme-event', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                    'X-CSRF-TOKEN': document.querySelector(
-                                        'meta[name="csrf-token"]')?.content || ''
-                                },
-                                body: JSON.stringify({
-                                    event: 'fallback_theme_switch',
-                                    message: 'Fallback: Switched to dark mode',
-                                    data: {
-                                        theme: 'dark'
-                                    },
-                                    timestamp: new Date().toISOString()
-                                })
-                            }).catch(e => console.log('Failed to log theme switch to Laravel:', e));
-                        }
-
-                        // Update icons
-                        const sunIcon = document.getElementById('sun-icon');
-                        const moonIcon = document.getElementById('moon-icon');
-
-                        console.log('Fallback: Sun icon found:', !!sunIcon);
-                        console.log('Fallback: Moon icon found:', !!moonIcon);
-
-                        if (sunIcon && moonIcon) {
-                            if (document.documentElement.classList.contains('dark')) {
-                                sunIcon.classList.add('hidden');
-                                moonIcon.classList.remove('hidden');
-                                console.log('Fallback: Icons updated for dark mode');
-                            } else {
-                                sunIcon.classList.remove('hidden');
-                                moonIcon.classList.add('hidden');
-                                console.log('Fallback: Icons updated for light mode');
-                            }
-
-                            console.log('Fallback: Sun icon classes:', sunIcon.classList.toString());
-                            console.log('Fallback: Moon icon classes:', moonIcon.classList.toString());
-                        } else {
-                            console.log('Fallback: Icons not found!');
-                        }
-
-                        console.log('Fallback: Final document classes:', document.documentElement.classList
-                            .toString());
-                    });
-                } else {
-                    console.log('Fallback: Theme toggle button NOT found!');
-
-                    // Log button not found
-                    fetch('/log-theme-event', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content || ''
-                        },
-                        body: JSON.stringify({
-                            event: 'fallback_button_not_found',
-                            message: 'Fallback: Theme toggle button NOT found',
-                            timestamp: new Date().toISOString()
-                        })
-                    }).catch(e => console.log('Failed to log button not found to Laravel:', e));
-                }
-            }
-
-            // Try immediately and after a delay
-            setupThemeToggle();
-            setTimeout(setupThemeToggle, 1000);
-        });
     </script>
 </body>
 
