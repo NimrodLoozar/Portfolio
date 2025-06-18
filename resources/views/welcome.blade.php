@@ -8,7 +8,7 @@
     <title>Laravel</title>
 
     <!-- Fonts -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 
     <link rel="preconnect" href="https://fonts.bunny.net">
     {{-- <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" /> --}}
@@ -139,52 +139,88 @@
 
 
         <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
-            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"
-                alt="" class="absolute inset-0 -z-10 size-full object-cover object-right md:object-center">
-            <div class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
-                aria-hidden="true">
-                <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
-                    style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+            <!-- Typewriter Animation Background -->
+            <div class="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none w-full h-full">
+                <div class="w-full h-full bg-black/80 shadow-2xl border-2 border-gray-800 relative overflow-hidden"
+                    style="backdrop-filter: blur(3px); filter: blur(1.5px); border-radius: 0;">
+                    <pre id="typewriter-bg"
+                        class="text-green-400 text-xs font-mono whitespace-pre leading-snug select-none w-full h-full m-0 p-8"></pre>
+                    <span id="typewriter-cursor-bg"
+                        class="absolute left-0 top-0 text-green-400 text-xs font-mono animate-pulse"
+                        style="margin: 18px 0 0 8px;">|</span>
                 </div>
             </div>
-            <div class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu"
-                aria-hidden="true">
-                <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
-                    style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
-                </div>
-            </div>
-            <div class="relative mx-auto max-w-7xl px-6 lg:px-8 flex flex-col lg:flex-row items-center">
-                <div class="relative mx-auto max-w-2xl lg:mx-0 lg:w-2/3">
-                    <h2 class="text-5xl font-semibold tracking-tight text-white sm:text-7xl">Portfolio site van
-                        Ferenc Nimród Lobozár</h2>
-                    <p class="mt-8 text-pretty text-lg font-medium text-gray-300 sm:text-xl/8">Mijn doel is...</p>
-                    <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
-                        <div
-                            class="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-white sm:grid-cols-2 md:flex lg:gap-x-10">
-                            <a href="#">Open roles <span aria-hidden="true">&rarr;</span></a>
-                            <a href="#">Internship program <span aria-hidden="true">&rarr;</span></a>
-                            <a href="#">Our values <span aria-hidden="true">&rarr;</span></a>
-                            <a href="#">Meet our leadership <span aria-hidden="true">&rarr;</span></a>
-                        </div>
-                        <dl class="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
-                            <div class="flex flex-col-reverse gap-1">
-                                <dt class="text-base/7 text-gray-300">Offices worldwide</dt>
-                                <dd class="text-4xl font-semibold tracking-tight text-white">12</dd>
-                            </div>
-                            <div class="flex flex-col-reverse gap-1">
-                                <dt class="text-base/7 text-gray-300">Full-time colleagues</dt>
-                                <dd class="text-4xl font-semibold tracking-tight text-white">300+</dd>
-                            </div>
-                            <div class="flex flex-col-reverse gap-1">
-                                <dt class="text-base/7 text-gray-300">Hours per week</dt>
-                                <dd class="text-4xl font-semibold tracking-tight text-white">40</dd>
-                            </div>
-                        </dl>
+
+
+            <!-- Hero Section -->
+            <section class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between mb-16 gap-10 px-4">
+                <div class="flex-1 text-center lg:text-left">
+                    <h1
+                        class="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                        Hi, I'm <span class="text-blue-700 dark:text-blue-300">F.Nimród Lobozár</span>
+                    </h1>
+
+                    <!-- Typing Animation -->
+                    <div
+                        class="text-2xl lg:text-3xl font-semibold mb-4 h-12 flex items-center justify-center lg:justify-start">
+                        <span id="typewriter" class="text-blue-600 dark:text-blue-400 ml-2"></span>
+                        <span id="cursor" class="text-blue-600 dark:text-blue-400 animate-pulse">|</span>
+                    </div>
+
+                    <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
+                        A passionate student developer with expertise in Laravel, PHP, Tailwind CSS, and modern frontend
+                        technologies. Currently pursuing Software Development with a strong focus on full-stack web
+                        applications.
+                    </p>
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4">
+                        <span
+                            class="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">
+                            Frontend Focused
+                        </span>
+                        <span
+                            class="px-4 py-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium">
+                            Full-Stack Learning
+                        </span>
                     </div>
                 </div>
-            </div>
+                <div class="flex-1 flex justify-center lg:justify-end">
+                    <img src="{{ asset('img/frontend-focus.svg') }}" alt="Frontend Focus"
+                        class="w-96 h-96 object-contain drop-shadow-xl bg-transparent animate-bounce-slow"
+                        style="background: none;">
+                </div>
+            </section>
         </div>
 
+        {{-- <div class="relative mx-auto max-w-7xl px-6 lg:px-8 flex flex-col lg:flex-row items-center">
+            <div class="relative mx-auto max-w-2xl lg:mx-0 lg:w-2/3">
+                <h2 class="text-5xl font-semibold tracking-tight text-white sm:text-7xl">Portfolio site van
+                    Ferenc Nimród Lobozár</h2>
+                <p class="mt-8 text-pretty text-lg font-medium text-gray-300 sm:text-xl/8">Mijn doel is...</p>
+                <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
+                    <div
+                        class="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-white sm:grid-cols-2 md:flex lg:gap-x-10">
+                        <a href="#">Open roles <span aria-hidden="true">&rarr;</span></a>
+                        <a href="#">Internship program <span aria-hidden="true">&rarr;</span></a>
+                        <a href="#">Our values <span aria-hidden="true">&rarr;</span></a>
+                        <a href="#">Meet our leadership <span aria-hidden="true">&rarr;</span></a>
+                    </div>
+                    <dl class="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
+                        <div class="flex flex-col-reverse gap-1">
+                            <dt class="text-base/7 text-gray-300">Offices worldwide</dt>
+                            <dd class="text-4xl font-semibold tracking-tight text-white">12</dd>
+                        </div>
+                        <div class="flex flex-col-reverse gap-1">
+                            <dt class="text-base/7 text-gray-300">Full-time colleagues</dt>
+                            <dd class="text-4xl font-semibold tracking-tight text-white">300+</dd>
+                        </div>
+                        <div class="flex flex-col-reverse gap-1">
+                            <dt class="text-base/7 text-gray-300">Hours per week</dt>
+                            <dd class="text-4xl font-semibold tracking-tight text-white">40</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </div> --}}
         <div id="about" class="bg-white py-24 sm:py-32">
             <div class="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col items-center">
                 <div class="flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-28">
@@ -267,7 +303,798 @@
                     </div>
                 </div>
             </div>
+            {{-- test --}}
+            <main class="min-h-screen mt-8 px-6 py-12 lg:px-8">
 
+
+                <!-- Individual Skills Progress Section -->
+                <section class="max-w-6xl mx-auto mb-16">
+                    <h2 class="text-3xl font-bold text-center mb-12">Skills Breakdown</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="skillsGrid">
+                        <!-- HTML -->
+                        <div
+                            class="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-orange-200 dark:border-orange-700 skill-card group hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-orange-500 text-white p-2 rounded-lg">
+                                    <span class="text-xl"><img src="{{ asset('img/html-1.svg') }}"
+                                            alt=""></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-orange-700 dark:text-orange-300">HTML</h3>
+                            </div>
+                            <div class="relative w-20 h-20 mx-auto">
+                                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                    <path stroke="#fed7aa" stroke-width="3" fill="none"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="progress-path" stroke="#f97316" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-dasharray="0, 100" data-target="90"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span
+                                        class="text-lg font-bold text-orange-700 dark:text-orange-300 progress-text">0%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-orange-600 dark:text-orange-400 text-center mt-4">Semantic markup &
+                                structure
+                            </p>
+                        </div>
+
+                        <!-- CSS -->
+                        <div
+                            class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-200 dark:border-blue-700 skill-card group hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-blue-500 text-white p-2 rounded-lg">
+                                    <span class="text-xl"><img src="{{ asset('img/css-3.svg') }}"
+                                            alt=""></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-blue-700 dark:text-blue-300">CSS</h3>
+                            </div>
+                            <div class="relative w-20 h-20 mx-auto">
+                                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                    <path stroke="#93c5fd" stroke-width="3" fill="none"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="progress-path" stroke="#3b82f6" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-dasharray="0, 100" data-target="85"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span
+                                        class="text-lg font-bold text-blue-700 dark:text-blue-300 progress-text">0%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-blue-600 dark:text-blue-400 text-center mt-4">Responsive design &
+                                animations
+                            </p>
+                        </div>
+
+                        <!-- PHP -->
+                        <div
+                            class="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-200 dark:border-purple-700 skill-card group hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-purple-500 text-white p-2 rounded-lg">
+                                    <span class="text-xl"><img src="{{ asset('img/php-4.svg') }}"
+                                            alt=""></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-purple-700 dark:text-purple-300">PHP</h3>
+                            </div>
+                            <div class="relative w-20 h-20 mx-auto">
+                                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                    <path stroke="#c4b5fd" stroke-width="3" fill="none"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="progress-path" stroke="#8b5cf6" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-dasharray="0, 100" data-target="80"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span
+                                        class="text-lg font-bold text-purple-700 dark:text-purple-300 progress-text">0%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-purple-600 dark:text-purple-400 text-center mt-4">Server-side
+                                development
+                            </p>
+                        </div>
+
+                        <!-- Laravel -->
+                        <div
+                            class="bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-red-200 dark:border-red-700 skill-card group hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-red-500 text-white p-2 rounded-lg">
+                                    <span class="text-xl"><img src="{{ asset('img/laravel-2.svg') }}"
+                                            alt=""></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-red-700 dark:text-red-300">Laravel</h3>
+                            </div>
+                            <div class="relative w-20 h-20 mx-auto">
+                                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                    <path stroke="#fca5a5" stroke-width="3" fill="none"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="progress-path" stroke="#ef4444" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-dasharray="0, 100" data-target="75"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span
+                                        class="text-lg font-bold text-red-700 dark:text-red-300 progress-text">0%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-red-600 dark:text-red-400 text-center mt-4">MVC framework & APIs</p>
+                        </div>
+
+                        <!-- JavaScript -->
+                        <div
+                            class="bg-gradient-to-br from-yellow-50 to-yellow-100 dark:from-yellow-900/20 dark:to-yellow-800/20 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-yellow-200 dark:border-yellow-700 skill-card group hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-yellow-500 text-white p-2 rounded-lg">
+                                    <span class="text-xl"><img src="{{ asset('img/javascript-1.svg') }}"
+                                            alt=""></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-yellow-700 dark:text-yellow-300">JavaScript</h3>
+                            </div>
+                            <div class="relative w-20 h-20 mx-auto">
+                                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                    <path stroke="#fde047" stroke-width="3" fill="none"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="progress-path" stroke="#eab308" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-dasharray="0, 100" data-target="70"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span
+                                        class="text-lg font-bold text-yellow-700 dark:text-yellow-300 progress-text">0%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-yellow-600 dark:text-yellow-400 text-center mt-4">Interactive web
+                                applications</p>
+                        </div>
+
+                        <!-- MySQL -->
+                        <div
+                            class="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-green-200 dark:border-green-700 skill-card group hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-green-500 text-white p-2 rounded-lg">
+                                    <span class="text-xl"><img src="{{ asset('img/mysql-logo-pure.svg') }}"
+                                            alt=""></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-green-700 dark:text-green-300">MySQL</h3>
+                            </div>
+                            <div class="relative w-20 h-20 mx-auto">
+                                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                    <path stroke="#86efac" stroke-width="3" fill="none"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="progress-path" stroke="#22c55e" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-dasharray="0, 100" data-target="75"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span
+                                        class="text-lg font-bold text-green-700 dark:text-green-300 progress-text">0%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-green-600 dark:text-green-400 text-center mt-4">Database design &
+                                queries
+                            </p>
+                        </div>
+
+                        <!-- React -->
+                        <div
+                            class="bg-gradient-to-br from-cyan-50 to-cyan-100 dark:from-cyan-900/20 dark:to-cyan-800/20 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-cyan-200 dark:border-cyan-700 skill-card group hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-cyan-500 text-white p-2 rounded-lg">
+                                    <span class="text-xl"><img src="{{ asset('img/react-2.svg') }}"
+                                            alt=""></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-cyan-700 dark:text-cyan-300">React</h3>
+                            </div>
+                            <div class="relative w-20 h-20 mx-auto">
+                                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                    <path stroke="#67e8f9" stroke-width="3" fill="none"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="progress-path" stroke="#06b6d4" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-dasharray="0, 100" data-target="60"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span
+                                        class="text-lg font-bold text-cyan-700 dark:text-cyan-300 progress-text">0%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-cyan-600 dark:text-cyan-400 text-center mt-4">Component-based
+                                development
+                            </p>
+                        </div>
+
+                        <!-- Power BI -->
+                        <div
+                            class="bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-800/20 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-indigo-200 dark:border-indigo-700 skill-card group hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-indigo-500 text-white p-2 rounded-lg">
+                                    <span class="text-xl"><img src="{{ asset('img/New_Power_BI_Logo.png') }}"
+                                            alt=""></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-indigo-700 dark:text-indigo-300">Power BI</h3>
+                            </div>
+                            <div class="relative w-20 h-20 mx-auto">
+                                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                    <path stroke="#a5b4fc" stroke-width="3" fill="none"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="progress-path" stroke="#6366f1" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-dasharray="0, 100" data-target="65"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span
+                                        class="text-lg font-bold text-indigo-700 dark:text-indigo-300 progress-text">0%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-indigo-600 dark:text-indigo-400 text-center mt-4">Data visualization
+                                &
+                                analytics</p>
+                        </div>
+
+                        <!-- Chart.js -->
+                        <div
+                            class="bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/20 dark:to-teal-800/20 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-teal-200 dark:border-teal-700 skill-card group hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-teal-500 text-white p-2 rounded-lg">
+                                    <span class="text-xl"><img src="{{ asset('img/chart_js_favicon.ico') }}"
+                                            alt=""></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-teal-700 dark:text-teal-300">Chart.js</h3>
+                            </div>
+                            <div class="relative w-20 h-20 mx-auto">
+                                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                    <path stroke="#5eead4" stroke-width="3" fill="none"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="progress-path" stroke="#14b8a6" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-dasharray="0, 100" data-target="70"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span
+                                        class="text-lg font-bold text-teal-700 dark:text-teal-300 progress-text">0%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-teal-600 dark:text-teal-400 text-center mt-4">Interactive data
+                                visualization
+                            </p>
+                        </div>
+
+                        <!-- Git -->
+                        <div
+                            class="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900/20 dark:to-slate-800/20 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200 dark:border-slate-700 skill-card group hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-slate-500 text-white p-2 rounded-lg">
+                                    <span class="text-xl"><img src="{{ asset('img/github-icon-1.svg') }}"
+                                            alt=""></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-700 dark:text-slate-300">Git</h3>
+                            </div>
+                            <div class="relative w-20 h-20 mx-auto">
+                                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                    <path stroke="#cbd5e1" stroke-width="3" fill="none"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="progress-path" stroke="#64748b" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-dasharray="0, 100" data-target="80"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span
+                                        class="text-lg font-bold text-slate-700 dark:text-slate-300 progress-text">0%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 text-center mt-4">Version control
+                                system</p>
+                        </div>
+
+                        <!-- Blade -->
+                        <div
+                            class="bg-gradient-to-br from-rose-50 to-rose-100 dark:from-rose-900/20 dark:to-rose-800/20 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-rose-200 dark:border-rose-700 skill-card group hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-rose-500 text-white p-2 rounded-lg">
+                                    <span class="text-xl"><img src="{{ asset('img/blade-ui-kit.svg') }}"
+                                            alt=""></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-rose-700 dark:text-rose-300">Blade</h3>
+                            </div>
+                            <div class="relative w-20 h-20 mx-auto">
+                                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                    <path stroke="#fda4af" stroke-width="3" fill="none"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="progress-path" stroke="#f43f5e" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-dasharray="0, 100" data-target="85"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span
+                                        class="text-lg font-bold text-rose-700 dark:text-rose-300 progress-text">0%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-rose-600 dark:text-rose-400 text-center mt-4">Laravel templating
+                                engine</p>
+                        </div>
+
+                        <!-- Docker -->
+                        <div
+                            class="bg-gradient-to-br from-sky-50 to-sky-100 dark:from-sky-900/20 dark:to-sky-800/20 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-sky-200 dark:border-sky-700 skill-card group hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-sky-500 text-white p-2 rounded-lg">
+                                    <span class="text-xl"><img src="{{ asset('img/docker.svg') }}"
+                                            alt=""></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-sky-700 dark:text-sky-300">Docker</h3>
+                            </div>
+                            <div class="relative w-20 h-20 mx-auto">
+                                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                    <path stroke="#7dd3fc" stroke-width="3" fill="none"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="progress-path" stroke="#0ea5e9" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-dasharray="0, 100" data-target="55"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span
+                                        class="text-lg font-bold text-sky-700 dark:text-sky-300 progress-text">0%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-sky-600 dark:text-sky-400 text-center mt-4">Containerization
+                                platform</p>
+                        </div>
+
+                        <!-- jQuery -->
+                        <div
+                            class="bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-900/20 dark:to-amber-800/20 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-amber-200 dark:border-amber-700 skill-card group hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-amber-500 text-white p-2 rounded-lg">
+                                    <span class="text-xl"><img src="{{ asset('img/jquery-4.svg') }}"
+                                            alt=""></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-amber-700 dark:text-amber-300">jQuery</h3>
+                            </div>
+                            <div class="relative w-20 h-20 mx-auto">
+                                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                    <path stroke="#fcd34d" stroke-width="3" fill="none"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="progress-path" stroke="#f59e0b" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-dasharray="0, 100" data-target="75"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span
+                                        class="text-lg font-bold text-amber-700 dark:text-amber-300 progress-text">0%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-amber-600 dark:text-amber-400 text-center mt-4">JavaScript library
+                            </p>
+                        </div>
+
+                        <!-- Tailwind CSS -->
+                        <div
+                            class="bg-gradient-to-br from-cyan-50 to-cyan-100 dark:from-cyan-900/20 dark:to-cyan-800/20 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-cyan-200 dark:border-cyan-700 skill-card group hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-cyan-500 text-white p-2 rounded-lg">
+                                    <span class="text-xl"><img src="{{ asset('img/tailwind-css-2.svg') }}"
+                                            alt=""></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-cyan-700 dark:text-cyan-300">Tailwind</h3>
+                            </div>
+                            <div class="relative w-20 h-20 mx-auto">
+                                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                    <path stroke="#67e8f9" stroke-width="3" fill="none"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="progress-path" stroke="#06b6d4" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-dasharray="0, 100" data-target="90"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span
+                                        class="text-lg font-bold text-cyan-700 dark:text-cyan-300 progress-text">0%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-cyan-600 dark:text-cyan-400 text-center mt-4">Utility-first CSS
+                                framework
+                            </p>
+                        </div>
+
+                        <!-- Vite.js -->
+                        <div
+                            class="bg-gradient-to-br from-violet-50 to-violet-100 dark:from-violet-900/20 dark:to-violet-800/20 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-violet-200 dark:border-violet-700 skill-card group hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-violet-500 text-white p-2 rounded-lg">
+                                    <span class="text-xl"><img src="{{ asset('img/vitejs.svg') }}"
+                                            alt=""></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-violet-700 dark:text-violet-300">Vite.js</h3>
+                            </div>
+                            <div class="relative w-20 h-20 mx-auto">
+                                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                    <path stroke="#c4b5fd" stroke-width="3" fill="none"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="progress-path" stroke="#8b5cf6" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-dasharray="0, 100" data-target="75"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span
+                                        class="text-lg font-bold text-violet-700 dark:text-violet-300 progress-text">0%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-violet-600 dark:text-violet-400 text-center mt-4">Build tool & dev
+                                server
+                            </p>
+                        </div>
+
+                        <!-- Vue.js -->
+                        <div
+                            class="bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/20 dark:to-emerald-800/20 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-200 dark:border-emerald-700 skill-card group hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-emerald-500 text-white p-2 rounded-lg">
+                                    <span class="text-xl"><img src="{{ asset('img/vue-9.svg') }}"
+                                            alt=""></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-emerald-700 dark:text-emerald-300">Vue.js</h3>
+                            </div>
+                            <div class="relative w-20 h-20 mx-auto">
+                                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                    <path stroke="#6ee7b7" stroke-width="3" fill="none"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="progress-path" stroke="#10b981" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-dasharray="0, 100" data-target="65"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span
+                                        class="text-lg font-bold text-emerald-700 dark:text-emerald-300 progress-text">0%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-emerald-600 dark:text-emerald-400 text-center mt-4">Progressive
+                                JavaScript
+                                framework</p>
+                        </div>
+
+                        <!-- WordPress -->
+                        <div
+                            class="bg-gradient-to-br from-stone-50 to-stone-100 dark:from-stone-900/20 dark:to-stone-800/20 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-stone-200 dark:border-stone-700 skill-card group hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-stone-500 text-white p-2 rounded-lg">
+                                    <span class="text-xl"><img src="{{ asset('img/wordpress-icon-1.svg') }}"
+                                            alt=""></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-stone-700 dark:text-stone-300">WordPress</h3>
+                            </div>
+                            <div class="relative w-20 h-20 mx-auto">
+                                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                    <path stroke="#d6d3d1" stroke-width="3" fill="none"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="progress-path" stroke="#78716c" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-dasharray="0, 100" data-target="70"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span
+                                        class="text-lg font-bold text-stone-700 dark:text-stone-300 progress-text">0%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-stone-600 dark:text-stone-400 text-center mt-4">Content management
+                                system
+                            </p>
+                        </div>
+
+                        <!-- Facebook -->
+                        <div
+                            class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-200 dark:border-blue-700 skill-card group hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-blue-600 text-white p-2 rounded-lg">
+                                    <span class="text-xl"><img src="{{ asset('img/facebook-3-2.svg') }}"
+                                            alt=""></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-blue-700 dark:text-blue-300">Facebook</h3>
+                            </div>
+                            <div class="relative w-20 h-20 mx-auto">
+                                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                    <path stroke="#93c5fd" stroke-width="3" fill="none"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="progress-path" stroke="#2563eb" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-dasharray="0, 100" data-target="85"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span
+                                        class="text-lg font-bold text-blue-700 dark:text-blue-300 progress-text">0%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-blue-600 dark:text-blue-400 text-center mt-4">Social media platform
+                            </p>
+                        </div>
+
+                        <!-- Instagram -->
+                        <div
+                            class="bg-gradient-to-br from-pink-50 to-pink-100 dark:from-pink-900/20 dark:to-pink-800/20 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-pink-200 dark:border-pink-700 skill-card group hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-pink-500 text-white p-2 rounded-lg">
+                                    <span class="text-xl"><img src="{{ asset('img/instagram-2016-5.svg') }}"
+                                            alt=""></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-pink-700 dark:text-pink-300">Instagram</h3>
+                            </div>
+                            <div class="relative w-20 h-20 mx-auto">
+                                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                    <path stroke="#f9a8d4" stroke-width="3" fill="none"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="progress-path" stroke="#ec4899" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-dasharray="0, 100" data-target="90"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span
+                                        class="text-lg font-bold text-pink-700 dark:text-pink-300 progress-text">0%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-pink-600 dark:text-pink-400 text-center mt-4">Photo sharing platform
+                            </p>
+                        </div>
+
+                        <!-- LinkedIn -->
+                        <div
+                            class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-200 dark:border-blue-700 skill-card group hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-blue-700 text-white p-2 rounded-lg">
+                                    <span class="text-xl"><img src="{{ asset('img/linkedin-icon-2.svg') }}"
+                                            alt=""></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-blue-700 dark:text-blue-300">LinkedIn</h3>
+                            </div>
+                            <div class="relative w-20 h-20 mx-auto">
+                                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                    <path stroke="#93c5fd" stroke-width="3" fill="none"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="progress-path" stroke="#1d4ed8" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-dasharray="0, 100" data-target="85"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span
+                                        class="text-lg font-bold text-blue-700 dark:text-blue-300 progress-text">0%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-blue-600 dark:text-blue-400 text-center mt-4">Professional
+                                networking</p>
+                        </div>
+
+                        <!-- Gmail -->
+                        <div
+                            class="bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-red-200 dark:border-red-700 skill-card group hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="text-white p-2 rounded-lg">
+                                    <span class="text-xl"><img src="{{ asset('img/official-gmail-icon-2020-.svg') }}"
+                                            alt=""></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-red-700 dark:text-red-300">Gmail</h3>
+                            </div>
+                            <div class="relative w-20 h-20 mx-auto">
+                                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                    <path stroke="#fca5a5" stroke-width="3" fill="none"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="progress-path" stroke="#dc2626" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-dasharray="0, 100" data-target="95"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span
+                                        class="text-lg font-bold text-red-700 dark:text-red-300 progress-text">0%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-red-600 dark:text-red-400 text-center mt-4">Email service</p>
+                        </div>
+
+                        <!-- Threads -->
+                        <div
+                            class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900/20 dark:to-gray-800/20 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 skill-card group hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-gray-600 text-white p-2 rounded-lg">
+                                    <span class="text-xl"><img src="{{ asset('img/threads-1.svg') }}"
+                                            alt=""></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-gray-700 dark:text-gray-300">Threads</h3>
+                            </div>
+                            <div class="relative w-20 h-20 mx-auto">
+                                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                    <path stroke="#d1d5db" stroke-width="3" fill="none"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="progress-path" stroke="#4b5563" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-dasharray="0, 100" data-target="80"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span
+                                        class="text-lg font-bold text-gray-700 dark:text-gray-300 progress-text">0%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 text-center mt-4">Text-based social
+                                platform</p>
+                        </div>
+                    </div>
+                </section>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const skillsGrid = document.getElementById('skillsGrid');
+                        let animationsTriggered = false;
+
+                        function animateProgress(card) {
+                            const progressPath = card.querySelector('.progress-path');
+                            const progressText = card.querySelector('.progress-text');
+                            const target = parseInt(progressPath.getAttribute('data-target'));
+
+                            let currentProgress = 0;
+                            const duration = 2000; // 2 seconds
+                            const steps = 60;
+                            const increment = target / steps;
+                            const stepTime = duration / steps;
+
+                            const timer = setInterval(() => {
+                                currentProgress += increment;
+
+                                if (currentProgress >= target) {
+                                    currentProgress = target;
+                                    clearInterval(timer);
+                                }
+
+                                // Update stroke-dasharray for circular progress
+                                progressPath.style.strokeDasharray = `${currentProgress}, 100`;
+
+                                // Update text
+                                progressText.textContent = Math.round(currentProgress) + '%';
+                            }, stepTime);
+                        }
+
+                        function checkInView() {
+                            if (animationsTriggered) return;
+
+                            const rect = skillsGrid.getBoundingClientRect();
+                            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+                            // Trigger when element is 20% visible
+                            if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                                animationsTriggered = true;
+
+                                // Animate each skill card with a staggered delay
+                                const skillCards = document.querySelectorAll('.skill-card');
+                                skillCards.forEach((card, index) => {
+                                    setTimeout(() => {
+                                        animateProgress(card);
+                                    }, index * 150); // 150ms delay between each card
+                                });
+                            }
+                        }
+
+                        // Check on scroll
+                        window.addEventListener('scroll', checkInView);
+
+                        // Check on load in case already in view
+                        checkInView();
+                    });
+                </script>
+
+                <!-- Concepts Section -->
+                <section class="max-w-4xl mx-auto mb-16">
+                    <h2 class="text-3xl font-bold text-center mb-12">Development Concepts</h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div
+                            class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg border border-gray-200 dark:border-gray-700">
+                            <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">CRUD Operations
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-400">
+                                <span class="font-medium">Create, Read, Update, Delete</span> - Essential database
+                                operations
+                                for building dynamic web applications.
+                            </p>
+                        </div>
+                        <div
+                            class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg border border-gray-200 dark:border-gray-700">
+                            <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">MVC Architecture
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-400">
+                                <span class="font-medium">Model, View, Controller</span> - Design pattern for
+                                organizing code
+                                and separating concerns in web applications.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- About Section -->
+                <section class="max-w-4xl mx-auto text-center">
+                    <div
+                        class="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-8 rounded-lg border border-blue-200 dark:border-blue-800">
+                        <h2 class="text-3xl font-bold mb-6">About Me</h2>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            I'm a passionate Software Development student with a strong focus on frontend technologies.
+                            I enjoy creating beautiful, responsive user interfaces and bringing designs to life with
+                            modern web
+                            technologies.
+                            Currently expanding my full-stack knowledge while specializing in frontend development.
+                        </p>
+                    </div>
+                </section>
+            </main>
+
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+                const ctx = document.getElementById('skillsChart').getContext('2d');
+
+                const skillsChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['HTML', 'CSS', 'PHP', 'Laravel', 'JavaScript', 'MySQL', 'React', 'Power BI'],
+                        datasets: [{
+                            label: 'Proficiency Level (%)',
+                            data: [90, 85, 80, 75, 70, 75, 60, 65],
+                            backgroundColor: [
+                                'rgba(255, 159, 64, 0.7)', // Orange for HTML
+                                'rgba(54, 162, 235, 0.7)', // Blue for CSS
+                                'rgba(153, 102, 255, 0.7)', // Purple for PHP
+                                'rgba(255, 99, 132, 0.7)', // Red for Laravel
+                                'rgba(255, 205, 86, 0.7)', // Yellow for JavaScript
+                                'rgba(75, 192, 192, 0.7)', // Green for MySQL
+                                'rgba(54, 162, 235, 0.7)', // Cyan for React
+                                'rgba(153, 102, 255, 0.7)' // Indigo for Power BI
+                            ],
+                            borderColor: [
+                                'rgb(255, 159, 64)',
+                                'rgb(54, 162, 235)',
+                                'rgb(153, 102, 255)',
+                                'rgb(255, 99, 132)',
+                                'rgb(255, 205, 86)',
+                                'rgb(75, 192, 192)',
+                                'rgb(54, 162, 235)',
+                                'rgb(153, 102, 255)'
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 100,
+                                ticks: {
+                                    callback: function(value) {
+                                        return value + '%';
+                                    }
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.parsed.y + '%';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+
+                // Update chart colors based on theme changes
+                window.addEventListener('theme-changed', function(e) {
+                    if (typeof skillsChart !== 'undefined') {
+                        const isDark = e.detail.theme === 'dark';
+                        skillsChart.options.scales.x.ticks.color = isDark ? '#e5e7eb' : '#374151';
+                        skillsChart.options.scales.y.ticks.color = isDark ? '#e5e7eb' : '#374151';
+                        skillsChart.options.scales.x.grid.color = isDark ? '#374151' : '#e5e7eb';
+                        skillsChart.options.scales.y.grid.color = isDark ? '#374151' : '#e5e7eb';
+                        skillsChart.update();
+                    }
+                });
+            </script>
+            {{-- test end --}}
             <div id="projects" class="bg-gray-100 py-24 sm:py-32">
                 <div class="mx-auto max-w-7xl px-6 lg:px-8">
                     <div class="mx-auto max-w-2xl lg:mx-0">

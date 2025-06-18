@@ -52,30 +52,32 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-6">
+        <div class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2">
 
-            <div class="space-y-4 w-full h-full sm:col-span-4">
-                <p class="text-lg text-gray-600 leading-relaxed mb-4 w-full h-full break-words">
+            <div class="space-y-4 w-full h-full sm:col-span-1">
+                <p class="text-lg text-gray-600 leading-relaxed mb-1 w-full break-words">
                     {{ $project->heading1 }}
+                </p>
+                <p class="text-lg text-gray-600 leading-relaxed mb-4 w-full break-words">
                     {{ $project->heading2 }}
+                </p>
+            </div>
+            <div class="space-y-4 w-full h-full sm:col-span-1">
+                <p class="text-lg text-gray-600 leading-relaxed mb-4 w-full break-words">
                     {{ $project->heading3 }}
+                </p>
+                <p class="text-lg text-gray-600 leading-relaxed mb-4 w-full break-words">
                     {{ $project->heading4 }}
-                    {{ $project->heading5 }}
-                    {{ $project->heading6 }}
-                    {{ $project->heading7 }}
-                    {{ $project->heading8 }}
-                    {{ $project->heading9 }}
-                    {{ $project->heading10 }}
                 </p>
                 <a href="{{ $project->url }}" target="_blank" type="button"
                     class="bg-blue-400 py-1 px-2 rounded-lg shadow-custom hover-knop hover-knop:hover">View
                     Project</a>
             </div>
             @if ($project->images)
-                <div class="space-y-4 mt-4 w-full h-64 sm:col-span-2">
+                <div class="flex flex-wrap space-x-4 mt-4 w-full h-64 sm:col-span-2">
                     @foreach ($project->images as $image)
                         <img src="{{ asset('storage/' . $image) }}" class="rounded-lg" alt="Image"
-                            style="max-width: 100%;">
+                            style="max-width: 100%; height: auto;">
                     @endforeach
                 </div>
             @endif

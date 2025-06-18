@@ -33,11 +33,11 @@ class ProjectsController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string|max:65535',
-            'heading1' => 'required|string|max:255',
-            'heading2' => 'nullable|string|max:255',
-            'heading3' => 'nullable|string|max:255',
-            'heading4' => 'nullable|string|max:255',
+            'description' => 'required|string|max:30',
+            'heading1' => 'required|string',
+            'heading2' => 'nullable|string',
+            'heading3' => 'nullable|string',
+            'heading4' => 'nullable|string',
             'url' => 'required|url',
             'year' => 'required|string',
             'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -88,7 +88,7 @@ class ProjectsController extends Controller
 
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string|max:65535',
+            'description' => 'required|string|max:30',
             'heading1' => 'required|string|max:255',
             'heading2' => 'nullable|string|max:255',
             'heading3' => 'nullable|string|max:255',
