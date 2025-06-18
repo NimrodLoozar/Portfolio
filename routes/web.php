@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\ThemeLogController;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
@@ -31,6 +32,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/log-theme-switch', [ThemeLogController::class, 'logSwitch']);
 });
+
+// Public route for theme event logging (no auth required)
+Route::post('/log-theme-event', [ThemeLogController::class, 'logEvent']);
 
 require __DIR__ . '/auth.php';
