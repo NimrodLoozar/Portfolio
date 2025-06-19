@@ -63,9 +63,7 @@ return [
     'dashboard_title' => 'Dashboard',
     'dashboard_welcome' => 'Je bent ingelogd!',
     'dashboard_welcome_message' => 'Welkom bij je Dashboard!',
-    'dashboard_manage_projects' => 'Hier kun je je projecten beheren.',
-
-    // General
+    'dashboard_manage_projects' => 'Hier kun je je projecten beheren.',    // General
     'welcome' => 'Welkom',
     'save' => 'Opslaan',
     'cancel' => 'Annuleren',
@@ -73,4 +71,33 @@ return [
     'delete' => 'Verwijderen',
     'create' => 'Aanmaken',
     'update' => 'Bijwerken',
+
+    // Navigation
+    'home' => 'Home',
+    'profile' => 'Profiel',
+    'log_out' => 'Uitloggen',    // Projects
+    'create_project' => 'Project Aanmaken',
+    'edit_project' => 'Project Bewerken',
+    'projects_overview' => 'Projectoverzicht',
+    'view_project' => 'Project Bekijken',
+    'project_details' => 'Vul de details van je nieuwe project in.',
+    'title' => 'Titel',
+    'description' => 'Beschrijving',
+    'heading_1' => 'Kop 1',
+    'heading_2' => 'Kop 2',
+    'heading_3' => 'Kop 3',
+    'heading_4' => 'Kop 4',
+    'url' => 'URL',
+    'year' => 'Jaar',
+    'year_1' => 'Leerjaar 1',
+    'year_2' => 'Leerjaar 2',
+    'personal_project' => 'Eigen project',
+    'banner' => 'Banner',
+    'images' => 'Afbeeldingen',
+    'upload_file' => 'Bestand uploaden',
+    'drag_drop' => 'of sleep en zet neer',
+    'file_types' => 'PNG, JPG, GIF tot 10MB',
+    'submit' => 'Verzenden',
+    'back' => 'Terug',
+    'delete_confirm' => 'Weet je zeker dat je dit project wilt verwijderen?',
 ];

@@ -4,7 +4,6 @@ return [
     'failed' => 'Deze inloggegevens komen niet overeen met onze gegevens.',
     'password' => 'Het opgegeven wachtwoord is onjuist.',
     'throttle' => 'Te veel inlogpogingen. Probeer het over :seconds seconden opnieuw.',
-    
     // Custom auth translations
     'Email' => 'E-mail',
     'Password' => 'Wachtwoord',
@@ -15,4 +14,10 @@ return [
     'Already registered?' => 'Al geregistreerd?',
     'Log in' => 'Inloggen',
     'Register' => 'Registreren',
+    'Home' => 'Home',
+    'Dashboard' => 'Dashboard',
+    'Projects' => 'Projecten',
+    'Create Project' => 'Project Aanmaken',
+    'Profile' => 'Profiel',
+    'Log Out' => 'Uitloggen',
 ];

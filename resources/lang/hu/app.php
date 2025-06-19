@@ -63,9 +63,7 @@ return [
     'dashboard_title' => 'Irányítópult',
     'dashboard_welcome' => 'Sikeresen bejelentkezett!',
     'dashboard_welcome_message' => 'Üdvözlöm az Irányítópulton!',
-    'dashboard_manage_projects' => 'Itt kezelheti a projektjeit.',
-
-    // General
+    'dashboard_manage_projects' => 'Itt kezelheti a projektjeit.',    // General
     'welcome' => 'Üdvözöljük',
     'save' => 'Mentés',
     'cancel' => 'Mégse',
@@ -73,4 +71,33 @@ return [
     'delete' => 'Törlés',
     'create' => 'Létrehozás',
     'update' => 'Frissítés',
+
+    // Navigation
+    'home' => 'Főoldal',
+    'profile' => 'Profil',
+    'log_out' => 'Kijelentkezés',    // Projects
+    'create_project' => 'Projekt Létrehozása',
+    'edit_project' => 'Projekt Szerkesztése',
+    'projects_overview' => 'Projektek Áttekintése',
+    'view_project' => 'Projekt Megtekintése',
+    'project_details' => 'Töltsd ki az új projekt részleteit.',
+    'title' => 'Cím',
+    'description' => 'Leírás',
+    'heading_1' => 'Fejléc 1',
+    'heading_2' => 'Fejléc 2',
+    'heading_3' => 'Fejléc 3',
+    'heading_4' => 'Fejléc 4',
+    'url' => 'URL',
+    'year' => 'Év',
+    'year_1' => '1. év',
+    'year_2' => '2. év',
+    'personal_project' => 'Személyes Projekt',
+    'banner' => 'Banner',
+    'images' => 'Képek',
+    'upload_file' => 'Fájl feltöltése',
+    'drag_drop' => 'vagy húzd ide',
+    'file_types' => 'PNG, JPG, GIF maximum 10MB',
+    'submit' => 'Beküldés',
+    'back' => 'Vissza',
+    'delete_confirm' => 'Biztosan törölni szeretnéd ezt a projektet?',
 ];

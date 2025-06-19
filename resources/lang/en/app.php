@@ -63,9 +63,7 @@ return [
     'dashboard_title' => 'Dashboard',
     'dashboard_welcome' => 'You\'re logged in!',
     'dashboard_welcome_message' => 'Welcome to your Dashboard!',
-    'dashboard_manage_projects' => 'Here you can manage your projects.',
-
-    // General
+    'dashboard_manage_projects' => 'Here you can manage your projects.',    // General
     'welcome' => 'Welcome',
     'save' => 'Save',
     'cancel' => 'Cancel',
@@ -73,4 +71,33 @@ return [
     'delete' => 'Delete',
     'create' => 'Create',
     'update' => 'Update',
+
+    // Navigation
+    'home' => 'Home',
+    'profile' => 'Profile',
+    'log_out' => 'Log Out',    // Projects
+    'create_project' => 'Create Project',
+    'edit_project' => 'Edit Project',
+    'projects_overview' => 'Projects Overview',
+    'view_project' => 'View Project',
+    'project_details' => 'Fill out the details of your new project.',
+    'title' => 'Title',
+    'description' => 'Description',
+    'heading_1' => 'Heading 1',
+    'heading_2' => 'Heading 2',
+    'heading_3' => 'Heading 3',
+    'heading_4' => 'Heading 4',
+    'url' => 'URL',
+    'year' => 'Year',
+    'year_1' => 'Year 1',
+    'year_2' => 'Year 2',
+    'personal_project' => 'Personal Project',
+    'banner' => 'Banner',
+    'images' => 'Images',
+    'upload_file' => 'Upload a file',
+    'drag_drop' => 'or drag and drop',
+    'file_types' => 'PNG, JPG, GIF up to 10MB',
+    'submit' => 'Submit',
+    'back' => 'Back',
+    'delete_confirm' => 'Are you sure you want to delete this project?',
 ];

@@ -5,7 +5,7 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex sm:items-center">
                     @if (Auth::check() && Auth::user()->role === 'admin')
                         <x-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
                             {{ __('Home') }}
@@ -19,12 +19,22 @@
                         <x-nav-link :href="route('projects.create')" :active="request()->routeIs('projects.create')">
                             {{ __('Create Project') }}
                         </x-nav-link>
-                        <x-theme-toggle />
+                        <div class="flex items-center">
+                            <x-theme-toggle />
+                        </div>
+                        <div class="flex items-center">
+                            <x-language-selector />
+                        </div>
                     @else
                         <x-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
                             {{ __('Home') }}
                         </x-nav-link>
-                        <x-theme-toggle />
+                        <div class="flex items-center">
+                            <x-theme-toggle />
+                        </div>
+                        <div class="flex items-center">
+                            <x-language-selector />
+                        </div>
                     @endif
                 </div>
             </div>
@@ -105,10 +115,18 @@
                 <x-responsive-nav-link :href="route('projects.create')" :active="request()->routeIs('projects.create')">
                     {{ __('Create Project') }}
                 </x-responsive-nav-link>
+                <!-- Mobile Language Selector -->
+                <div class="px-3 py-2">
+                    <x-language-selector />
+                </div>
             @else
                 <x-responsive-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
                     {{ __('Home') }}
                 </x-responsive-nav-link>
+                <!-- Mobile Language Selector -->
+                <div class="px-3 py-2">
+                    <x-language-selector />
+                </div>
             @endif
         </div>
 
