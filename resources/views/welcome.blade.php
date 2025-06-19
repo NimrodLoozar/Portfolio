@@ -170,7 +170,7 @@
 
             <!-- Hero Section -->
             <section class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between mb-16 gap-10 px-4">
-                <div class="flex-1 text-center lg:text-left">
+                <div id="fade-animationLeft" class="flex-1 text-center lg:text-left">
                     <h1
                         class="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                         Hi, I'm <span class="text-blue-700 dark:text-blue-300">F.Nimród Lobozár</span>
@@ -199,7 +199,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="flex-1 flex justify-center lg:justify-end">
+                <div id="fade-animationRight" class="flex-1 flex justify-center lg:justify-end">
                     <img src="{{ asset('img/frontend-focus.svg') }}" alt="Frontend Focus"
                         class="w-96 h-96 object-contain drop-shadow-xl bg-transparent animate-bounce-slow"
                         style="background: none;">

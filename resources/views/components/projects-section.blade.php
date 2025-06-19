@@ -28,7 +28,8 @@
             </h2>
             <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">Here are some of the projects I have worked on:</p>
         </div>
-        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div id="fade-animationRight"
+            class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($projects->where('year', '2') as $project)
                 <a href="{{ route('projects.show', $project->id) }}"
                     class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -47,7 +48,8 @@
             </h2>
             <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">Here are some of the projects I have worked on:</p>
         </div>
-        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div id="fade-animationRight"
+            class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($projects->where('year', 'Eigen project') as $project)
                 <a href="{{ route('projects.show', $project->id) }}"
                     class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -73,11 +75,13 @@
     var grids = document.querySelectorAll('#fade-animationLeft');
     grids.forEach(function(grid) {
         if (!grid) return;
+        grid.style.opacity = '0';
         var animated = false;
         var skillObserver = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting && !animated) {
                     grid.classList.add('animate__animated', 'animate__fadeInLeft');
+                    grid.style.opacity = '1';
                     animated = true;
                     skillObserver.disconnect();
                 }
@@ -92,11 +96,15 @@
     var grids = document.querySelectorAll('#fade-animationRight');
     grids.forEach(function(grid) {
         if (!grid) return;
+        grid.style.opacity = '0';
         var animated = false;
         var skillObserver = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting && !animated) {
-                    grid.classList.add('animate__animated', 'animate__fadeInRight');
+                    setTimeout(function() {
+                        grid.classList.add('animate__animated', 'animate__fadeInRight');
+                        grid.style.opacity = '1';
+                    }, 300);
                     animated = true;
                     skillObserver.disconnect();
                 }
