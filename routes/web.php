@@ -6,8 +6,12 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\ThemeLogController;
+use App\Http\Controllers\LanguageController;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+
+// Language switching routes
+Route::get('/language/{locale}', [LanguageController::class, 'switch'])->name('language.switch');
 
 Route::get('/dropdown-test', function () {
     return view('dropdown-test');

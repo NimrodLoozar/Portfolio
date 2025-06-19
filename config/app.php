@@ -82,6 +82,17 @@ return [
 
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Supported Locales
+    |--------------------------------------------------------------------------
+    |
+    | This array contains all the supported locales for the application.
+    |
+    */
+
+    'supported_locales' => ['en', 'hu', 'nl'],
+
     'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
 
     /*

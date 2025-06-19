@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('app.dashboard_title') }}
         </h2>
     </x-slot>
 
@@ -10,11 +10,11 @@
             <div class="bg-gray-100 dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-6 sm:px-20 border-b border-gray-200 dark:border-gray-700">
                     <div class="mt-8 text-2xl">
-                        Welcome to your Dashboard!
+                        {{ __('app.dashboard_welcome_message') }}
                     </div>
 
                     <div class="mt-6 text-gray-500 dark:text-gray-400">
-                        Here you can manage your projects.
+                        {{ __('app.dashboard_manage_projects') }}
                     </div>
 
                     <div class="mt-6">

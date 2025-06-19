@@ -27,6 +27,29 @@
         }
     </script>
 
+    <script>
+        // FadeDown animation
+        var grids = document.querySelectorAll('#fade-animationDown');
+        grids.forEach(function(grid) {
+            if (!grid) return;
+            grid.style.opacity = '0';
+            var animated = false;
+            var skillObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting && !animated) {
+                        grid.classList.add('animate__animated', 'animate__fadeInDown');
+                        grid.style.opacity = '1';
+                        animated = true;
+                        skillObserver.disconnect();
+                    }
+                });
+            }, {
+                threshold: 0.3
+            });
+            skillObserver.observe(grid);
+        });
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
@@ -73,23 +96,24 @@
             <nav class="flex items-center justify-center p-2 lg:px-8" aria-label="Global">
                 <div class="hidden lg:flex lg:gap-x-4 items-center">
                     <a href="#about"
-                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center transition-all duration-200">Over
-                        mij</a>
+                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center transition-all duration-200">{{ __('app.about') }}</a>
                     <a href="#projects"
-                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center transition-all duration-200">Pojecten</a>
+                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center transition-all duration-200">{{ __('app.projects') }}</a>
                     <a href="#contact"
-                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center transition-all duration-200">Contact</a>
+                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center transition-all duration-200">{{ __('app.contact') }}</a>
                     <a href="#"
-                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center transition-all duration-200">Company</a>
+                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center transition-all duration-200">{{ __('app.company') }}</a>
                     @auth
                         <a href="{{ route('dashboard') }}"
-                            class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center transition-all duration-200">{{ __('Dashboard') }}</a>
+                            class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center transition-all duration-200">{{ __('app.dashboard') }}</a>
                     @else
-                        {{-- <a href="{{ route('login') }}" class="text-sm/6 font-semibold text-white">{{ __('Log in') }} <span
+                        {{-- <a href="{{ route('login') }}" class="text-sm/6 font-semibold text-white">{{ __('app.login') }} <span
                     aria-hidden="true">&rarr;</span></a> --}}
                     @endauth
                     <!-- Enhanced Theme toggle button -->
                     <x-theme-toggle />
+                    <!-- Language selector -->
+                    <x-language-selector />
                 </div>
 
                 <!-- Mobile menu button -->
@@ -131,21 +155,23 @@
                         <div class="-my-6 divide-y divide-gray-500/10">
                             <div class="space-y-2 py-6">
                                 <a href="#about"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800">Over
-                                    mij</a>
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800">{{ __('app.about') }}</a>
                                 <a href="#projects"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800">Projecten</a>
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800">{{ __('app.projects') }}</a>
                                 <a href="#contact"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800">Contact</a>
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800">{{ __('app.contact') }}</a>
                                 <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800">Company</a>
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800">{{ __('app.company') }}</a>
                                 <!-- Enhanced Mobile theme toggle -->
                                 <x-theme-toggle class="mt-2" />
+                                <!-- Mobile Language selector -->
+                                <div class="mt-2">
+                                    <x-language-selector />
+                                </div>
                             </div>
                             <div class="py-6">
                                 <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800">Log
-                                    in</a>
+                                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800">{{ __('app.login') }}</a>
                             </div>
                         </div>
                     </div>
@@ -173,7 +199,8 @@
                 <div id="fade-animationLeft" class="flex-1 text-center lg:text-left">
                     <h1
                         class="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                        Hi, I'm <span class="text-blue-700 dark:text-blue-300">F.Nimród Lobozár</span>
+                        {{ __('app.pre_intro_name') }}<span
+                            class="text-blue-600 dark:text-blue-400">{{ __('app.intro_name') }}</span>
                     </h1>
 
                     <!-- Typing Animation -->
@@ -184,18 +211,16 @@
                     </div>
 
                     <p class="text-xl text-gray-300 mb-8">
-                        A passionate student developer with expertise in Laravel, PHP, Tailwind CSS, and modern frontend
-                        technologies. Currently pursuing Software Development with a strong focus on full-stack web
-                        applications.
+                        {{ __('app.intro_description') }}
                     </p>
                     <div class="flex flex-wrap justify-center lg:justify-start gap-4">
                         <span
                             class="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">
-                            Frontend Focused
+                            {{ __('app.frontend_focused') }}
                         </span>
                         <span
                             class="px-4 py-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium">
-                            Full-Stack Learning
+                            {{ __('app.fullstack_learning') }}
                         </span>
                     </div>
                 </div>
@@ -206,7 +231,6 @@
                 </div>
             </section>
         </div>
-
         <!-- About Section Component -->
         <x-about-section />
         <!-- Projects Section Component -->
@@ -218,9 +242,9 @@
 
     <footer class="bg-gray-900 text-white py-8">
         <div class="container mx-auto text-center">
-            <p class="text-sm">© {{ date('Y') }} F.Nimród Lobozár. All rights reserved.</p>
-            <p class="text-xs mt-2">Made with <span class="text-red-500">&hearts;</span> using Laravel, PHP, and
-                Tailwind CSS.</p>
+            <p class="text-sm">© {{ date('Y') }} F.Nimród Lobozár. {{ __('app.footer_rights') }}.</p>
+            <p class="text-xs mt-2">{{ __('app.footer_made_with') }} <span class="text-red-500">&hearts;</span>
+                {{ __('app.footer_technologies') }}</p>
         </div>
     </footer>
     </div>

@@ -4,7 +4,7 @@
     <div id="section-languages"
         class="section-content fade-section flex-1 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border border-blue-200 dark:border-blue-700 rounded-xl p-6 shadow-lg">
         <h3 class="text-2xl font-bold mb-8 text-blue-700 dark:text-blue-300 text-center">
-            Programming Languages</h3>
+            {{ __('app.skills_programming_languages') }}</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 skillsGrid"
             data-skill-group="languages" id="fade-animationLeft">
             @foreach ($skillsLanguages as $skill)
@@ -18,7 +18,7 @@
     <div id="section-libraries"
         class="section-content fade-section hidden flex-1 bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 border border-purple-200 dark:border-purple-700 rounded-xl p-6 shadow-lg">
         <h3 class="text-2xl font-bold mb-8 text-purple-700 dark:text-purple-300 text-center">
-            Libraries / Version Control</h3>
+            {{ __('app.skills_libraries_version_control') }}</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 skillsGrid"
             data-skill-group="libraries" id="fade-animationLeft">
             @foreach ($skillsLibraries as $skill)
@@ -31,7 +31,7 @@
     <!-- Social Media Section -->
     <div id="section-social"
         class="section-content fade-section hidden flex-1 bg-gradient-to-br from-pink-50 to-pink-100 dark:from-pink-900/20 dark:to-pink-800/20 border border-pink-200 dark:border-pink-700 rounded-xl p-6 shadow-lg">
-        <h3 class="text-2xl font-bold mb-8 text-pink-700 dark:text-pink-300 text-center">Social Media</h3>
+        <h3 class="text-2xl font-bold mb-8 text-pink-700 dark:text-pink-300 text-center">{{ __('app.skills_social_media') }}</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 skillsGrid"
             data-skill-group="social" id="fade-animationLeft">
             @foreach ($skillsSocial as $skill)

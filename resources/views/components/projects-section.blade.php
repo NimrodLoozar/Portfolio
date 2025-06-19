@@ -4,9 +4,9 @@
     <div id="fade-animationLeft" class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:mx-0">
             <h2 class="text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-100 sm:text-5xl">
-                Projecten leerjaar 1
+                {{ __('app.projects_year1_title') }}
             </h2>
-            <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">Here are some of the projects I have worked on:</p>
+            <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">{{ __('app.projects_description') }}</p>
         </div>
         <div id="fade-animationRight"
             class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -24,9 +24,9 @@
 
         <div class="mx-auto max-w-2xl lg:mx-0 border-t border-gray-300 dark:border-gray-700 pt-5">
             <h2 class="text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-100 sm:text-5xl">
-                Projecten leerjaar 2
+                {{ __('app.projects_year2_title') }}
             </h2>
-            <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">Here are some of the projects I have worked on:</p>
+            <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">{{ __('app.projects_description') }}</p>
         </div>
         <div id="fade-animationRight"
             class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -44,9 +44,9 @@
 
         <div class="mx-auto max-w-2xl lg:mx-0 border-t border-gray-300 dark:border-gray-700 pt-5">
             <h2 class="text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-100 sm:text-5xl">
-                Eigen projecten
+                {{ __('app.projects_personal_title') }}
             </h2>
-            <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">Here are some of the projects I have worked on:</p>
+            <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">{{ __('app.projects_description') }}</p>
         </div>
         <div id="fade-animationRight"
             class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
