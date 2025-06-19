@@ -23,7 +23,7 @@
                 class="flex items-center justify-between px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 {{ app()->getLocale() == 'en' ? 'bg-gray-100 dark:bg-gray-700' : '' }}"
                 role="menuitem">
                 <div class="flex items-center">
-                    <span class="mr-3 text-lg">🇬🇧</span>
+                    <span class="mr-3 text-lg w-6 text-center">🇬🇧</span>
                     <span>English</span>
                 </div>
                 @if (app()->getLocale() == 'en')
@@ -38,7 +38,7 @@
                 class="flex items-center justify-between px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 {{ app()->getLocale() == 'hu' ? 'bg-gray-100 dark:bg-gray-700' : '' }}"
                 role="menuitem">
                 <div class="flex items-center">
-                    <span class="mr-3 text-lg">🇭🇺</span>
+                    <span class="mr-3 text-lg w-6 text-center">🇭🇺</span>
                     <span>Magyar</span>
                 </div>
                 @if (app()->getLocale() == 'hu')
@@ -53,7 +53,7 @@
                 class="flex items-center justify-between px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 {{ app()->getLocale() == 'nl' ? 'bg-gray-100 dark:bg-gray-700' : '' }}"
                 role="menuitem">
                 <div class="flex items-center">
-                    <span class="mr-3 text-lg">🇳🇱</span>
+                    <span class="mr-3 text-lg w-6 text-center">🇳🇱</span>
                     <span>Nederlands</span>
                 </div>
                 @if (app()->getLocale() == 'nl')

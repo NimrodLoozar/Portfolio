@@ -19,13 +19,13 @@
             <div class="w-full flex justify-center gap-4 mb-8">
                 <button id="btn-languages"
                     class="section-btn px-6 py-2 rounded-lg font-semibold bg-blue-600 text-white shadow hover:bg-blue-700 transition"
-                    data-section="languages">Programming Languages</button>
+                    data-section="languages">{{ __('app.skills_programming_languages') }}</button>
                 <button id="btn-libraries"
                     class="section-btn px-6 py-2 rounded-lg font-semibold bg-purple-600 text-white shadow hover:bg-purple-700 transition"
-                    data-section="libraries">Libraries / Version Control</button>
+                    data-section="libraries">{{ __('app.skills_libraries_version_control') }}</button>
                 <button id="btn-social"
                     class="section-btn px-6 py-2 rounded-lg font-semibold bg-pink-600 text-white shadow hover:bg-pink-700 transition"
-                    data-section="social">Social Media</button>
+                    data-section="social">{{ __('app.skills_social_media') }}</button>
             </div>
 
             <!-- Section Contents (Skills Breakdown) -->
