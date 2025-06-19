@@ -1,5 +1,5 @@
 <button id="theme-toggle" type="button" onclick="toggleTheme()"
-    class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5"
+    class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
     aria-label="Toggle dark mode">
     <!-- Moon icon (shown in light mode) -->
     <svg id="moon-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

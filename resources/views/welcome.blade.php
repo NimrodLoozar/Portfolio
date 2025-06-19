@@ -69,57 +69,48 @@
     class="font-sans antialiased bg-gray-200 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
     <div class="min-h-screen transition-colors duration-300">
         <header
-            class="fixed inset-x-0 top-0 z-50 bg-gray-900/10 dark:bg-gray-800/20 backdrop-blur-lg shadow-lg transition-colors duration-300">
-            <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-                <div class="flex lg:flex-1">
-                    <a href="#" class="-m-1.5 p-1.5">
-                        <span class="sr-only">Your Company</span>
-                        <img class="h-8 w-auto"
-                            src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600" alt="">
-                    </a>
+            class="fixed top-2 left-1/2 transform -translate-x-1/2 z-50 bg-gray-900/10 dark:bg-gray-800/20 backdrop-blur-lg shadow-lg transition-colors duration-300 rounded-3xl">
+            <nav class="flex items-center justify-center p-2 lg:px-8" aria-label="Global">
+                <div class="hidden lg:flex lg:gap-x-4 items-center">
+                    <a href="#about"
+                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center transition-all duration-200">Over
+                        mij</a>
+                    <a href="#projects"
+                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center transition-all duration-200">Pojecten</a>
+                    <a href="#contact"
+                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center transition-all duration-200">Contact</a>
+                    <a href="#"
+                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center transition-all duration-200">Company</a>
+                    @auth
+                        <a href="{{ route('dashboard') }}"
+                            class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center transition-all duration-200">{{ __('Dashboard') }}</a>
+                    @else
+                        {{-- <a href="{{ route('login') }}" class="text-sm/6 font-semibold text-white">{{ __('Log in') }} <span
+                    aria-hidden="true">&rarr;</span></a> --}}
+                    @endauth
+                    <!-- Enhanced Theme toggle button -->
+                    <x-theme-toggle />
                 </div>
-                <div class="flex lg:hidden">
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden">
                     <button id="mobile-menu-button" type="button"
-                        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white">
+                        class="-m-2.5 rounded-md p-2.5 text-white dark:text-gray-300">
                         <span class="sr-only">Open main menu</span>
                         <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                            aria-hidden="true" data-slot="icon">
+                            aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
                     </button>
                 </div>
-                <div class="hidden lg:flex lg:gap-x-12">
-                    <a href="#about"
-                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white transition-colors duration-200">Over
-                        mij</a>
-                    <a href="#projects"
-                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white transition-colors duration-200">Pojecten</a>
-                    <a href="#contact"
-                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white transition-colors duration-200">Contact</a>
-                    <a href="#"
-                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white transition-colors duration-200">Company</a>
-                    <!-- Enhanced Theme toggle button -->
-                    <x-theme-toggle />
-                </div>
-                @auth
-                    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                        <a href="{{ route('dashboard') }}"
-                            class="text-sm/6 font-semibold text-white">{{ __('Dashboard') }}</a>
-                    </div>
-                @else
-                    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                        <a href="{{ route('login') }}" class="text-sm/6 font-semibold text-white">{{ __('Log in') }} <span
-                                aria-hidden="true">&rarr;</span></a>
-                    </div>
-                @endauth
             </nav>
             <!-- Mobile menu, show/hide based on menu open state. -->
             <div id="mobile-menu" class="lg:hidden hidden" role="dialog" aria-modal="true">
                 <!-- Background backdrop, show/hide based on slide-over state. -->
                 <div class="fixed inset-0 z-50"></div>
                 <div
-                    class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:sm:ring-gray-100/10">
+                    class="fixed inset-y-0 right-0 z-500 w-full overflow-y-auto bg-white dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:sm:ring-gray-100/10">
                     <div class="flex items-center justify-between">
                         <a href="#" class="-m-1.5 p-1.5">
                             <span class="sr-only">Your Company</span>
@@ -149,37 +140,7 @@
                                 <a href="#"
                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800">Company</a>
                                 <!-- Enhanced Mobile theme toggle -->
-                                {{-- <div class="-mx-3 px-3 py-2">
-                                    <div class="flex items-center justify-between">
-                                        <span
-                                            class="text-base/7 font-semibold text-gray-900 dark:text-white">Thema:</span>
-                                        <button id="mobile-theme-toggle" type="button"
-                                            class="theme-toggle-btn relative inline-flex items-center justify-center w-11 h-6 bg-gray-200 dark:bg-gray-700 rounded-full transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 hover:bg-gray-300 dark:hover:bg-gray-600">
-                                            <!-- Toggle slider -->
-                                            <span
-                                                class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full transition-transform duration-300 ease-in-out transform translate-x-0 dark:translate-x-5 shadow-lg">
-                                                <!-- Sun icon (light mode) -->
-                                                <svg id="mobile-sun-icon"
-                                                    class="absolute inset-0 w-5 h-5 text-yellow-500 transition-all duration-300 dark:opacity-0 dark:scale-75"
-                                                    fill="currentColor" viewBox="0 0 20 20"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                                                        clip-rule="evenodd"></path>
-                                                </svg>
-                                                <!-- Moon icon (dark mode) -->
-                                                <svg id="mobile-moon-icon"
-                                                    class="absolute inset-0 w-5 h-5 text-blue-400 transition-all duration-300 opacity-0 scale-75 dark:opacity-100 dark:scale-100"
-                                                    fill="currentColor" viewBox="0 0 20 20"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div> --}}
+                                <x-theme-toggle class="mt-2" />
                             </div>
                             <div class="py-6">
                                 <a href="#"
@@ -208,8 +169,7 @@
 
 
             <!-- Hero Section -->
-            <section
-                class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between mb-16 gap-10 px-4">
+            <section class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between mb-16 gap-10 px-4">
                 <div class="flex-1 text-center lg:text-left">
                     <h1
                         class="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
