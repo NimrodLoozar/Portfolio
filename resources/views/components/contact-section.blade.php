@@ -13,7 +13,7 @@
                         class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('app.contact_name') }}</label>
                     <div class="mt-1">
                         <input type="text" name="name" id="name" autocomplete="name"
-                            class="block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm focus:border-indigo-500 dark:focus:border-indigo-400 focus:ring-indigo-500 dark:focus:ring-indigo-400 sm:text-sm">
+                            class="block w-full py-2 px-2 rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm focus:border-indigo-500 dark:focus:border-indigo-400 focus:ring-indigo-500 dark:focus:ring-indigo-400 sm:text-sm">
                     </div>
                 </div>
                 <div id="fade-animationTopRight">
@@ -21,7 +21,7 @@
                         class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('app.contact_email') }}</label>
                     <div class="mt-1">
                         <input type="email" name="email" id="email" autocomplete="email"
-                            class="block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm focus:border-indigo-500 dark:focus:border-indigo-400 focus:ring-indigo-500 dark:focus:ring-indigo-400 sm:text-sm">
+                            class="block w-full py-2 px-2 rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm focus:border-indigo-500 dark:focus:border-indigo-400 focus:ring-indigo-500 dark:focus:ring-indigo-400 sm:text-sm">
                     </div>
                 </div>
                 <div id="fade-animationUp" class="sm:col-span-2">
@@ -29,7 +29,7 @@
                         class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('app.contact_message') }}</label>
                     <div class="mt-1">
                         <textarea id="message" name="message" rows="4"
-                            class="block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm focus:border-indigo-500 dark:focus:border-indigo-400 focus:ring-indigo-500 dark:focus:ring-indigo-400 sm:text-sm"></textarea>
+                            class="block w-full py-2 px-2 rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm focus:border-indigo-500 dark:focus:border-indigo-400 focus:ring-indigo-500 dark:focus:ring-indigo-400 sm:text-sm"></textarea>
                     </div>
                 </div>
                 <div class="sm:col-span-2">
