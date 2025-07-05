@@ -38,14 +38,14 @@
                 <label for="title"
                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('app.title') }}</label>
                 <input type="text" name="title" id="title" value="{{ old('title', $project->title) }}"
-                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md">
+                    class="mt-1 px-2 py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md">
             </div>
 
             <div class="mb-4">
                 <label for="url"
                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('app.url') }}</label>
                 <input type="url" name="url" id="url" value="{{ old('url', $project->url) }}"
-                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md">
+                    class="mt-1 px-2 py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md">
             </div>
 
             <div class="col-span-full">
@@ -53,7 +53,7 @@
                     class="block text-sm font-medium text-gray-900 dark:text-gray-100">{{ __('app.year') }}</label>
                 <div class="mt-2">
                     <select name="year" id="year" required
-                        class="block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        class="block px-2 py-2 w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                         <option value="1" {{ $project->year == '1' ? 'selected' : '' }}>{{ __('app.year_1') }}
                         </option>
                         <option value="2" {{ $project->year == '2' ? 'selected' : '' }}>{{ __('app.year_2') }}
@@ -68,46 +68,46 @@
                 <label for="banner"
                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('app.banner') }}</label>
                 <input type="file" name="banner" id="banner"
-                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md">
+                    class="mt-1 px-2 py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md">
             </div>
 
             <div class="mb-4">
                 <label for="description"
                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('app.description') }}</label>
                 <textarea name="description" id="description"
-                    class="mt-1 px-4 pt-4 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md">{{ old('description', $project->description) }}</textarea>
+                    class="mt-1 px-2 py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md">{{ old('description', $project->description) }}</textarea>
             </div>
 
             <div class="mb-4">
                 <label for="heading1"
                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('app.heading_1') }}</label>
                 <textarea name="heading1" id="heading1"
-                    class="mt-1 px-4 pt-4 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md">{{ old('heading1', $project->heading1) }}</textarea>
+                    class="mt-1 px-2 py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md">{{ old('heading1', $project->heading1) }}</textarea>
             </div>
 
             <div class="mb-4">
                 <label for="heading2"
                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('app.heading_2') }}</label>
                 <textarea name="heading2" id="heading2"
-                    class="mt-1 px-4 pt-4 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md">{{ old('heading2', $project->heading2) }}</textarea>
+                    class="mt-1 px-2 py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md">{{ old('heading2', $project->heading2) }}</textarea>
             </div>
 
             <div class="mb-4">
                 <label for="heading3"
                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('app.heading_3') }}</label>
                 <textarea name="heading3" id="heading3"
-                    class="mt-1 px-4 pt-4 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md">{{ $project->heading3 }}</textarea>
+                    class="mt-1 px-2 py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md">{{ $project->heading3 }}</textarea>
             </div>
             <div class="mb-4">
                 <label for="heading4"
                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('app.heading_4') }}</label>
                 <textarea name="heading4" id="heading4"
-                    class="mt-1 px-4 pt-4 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md">{{ $project->heading4 }}</textarea>
+                    class="mt-1 px-2 py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md">{{ $project->heading4 }}</textarea>
             </div>
 
 
             <button type="submit"
-                class="inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-gray-500 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
+                class="inline-flex items-center px-4 py-2 bg-green-600 transition ease-in-out delay-75 hover:bg-green-700 text-white text-sm font-medium rounded-md hover:-translate-y-1 hover:scale-110">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7">
@@ -118,9 +118,9 @@
 
         </form>
 
-        <div class="mt-4">
+        <div class="my-4">
             <a href="{{ route('projects.show', $project->id) }}"
-                class="inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-gray-500 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
+                class="inline-flex items-center px-4 py-2 bg-blue-600 transition ease-in-out delay-75 hover:bg-blue-700 text-white text-sm font-medium rounded-md hover:-translate-y-1 hover:scale-110">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
@@ -132,13 +132,15 @@
         <form action="{{ route('projects.destroy', $project->id) }}" method="POST" class="inline">
             @csrf
             @method('DELETE')
+
             <button type="submit"
-                class="inline-flex items-center mt-4 px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 focus:outline-none focus:border-red-900 focus:ring ring-red-300 disabled:opacity-25 transition ease-in-out duration-150"
+                class="inline-flex items-center px-4 py-2 bg-red-600 transition ease-in-out delay-75 hover:bg-red-700 text-white text-sm font-medium rounded-md hover:-translate-y-1 hover:scale-110"
                 onclick="return confirm('{{ __('app.delete_confirm') }}')">
-                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-5 w-5 mr-2"
                     xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                    </path>
+                    <path
+                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                        stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
                 </svg>
                 {{ __('app.delete') }}
             </button>

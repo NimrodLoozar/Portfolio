@@ -11,27 +11,14 @@
     {{-- <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" /> --}}
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
-    <script>
-        // Initial theme check to prevent FOUC (Flash of Unstyled Content)
-        if (localStorage.getItem('color-theme') === 'dark' ||
-            (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    </script>
-
-    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @else
-    @endif
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="h-full">
+<body class="h-full bg-white dark:bg-gray-900 transition-colors duration-200">
     <div class="min-h-full">
         @include('layouts.navigation')
 
-        <main class="h-full flex flex-col items-center justify-center">
+        <main class="h-full bg-gray-50 dark:bg-gray-900 flex flex-col items-center justify-center">
 
             {{ $slot }}
 
