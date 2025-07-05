@@ -17,15 +17,6 @@
 
     <!-- Styles / Scripts -->
 
-    <script>
-        // Initial theme check to prevent FOUC (Flash of Unstyled Content)
-        if (localStorage.getItem('color-theme') === 'dark' ||
-            (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    </script>
 
     <script>
         // FadeDown animation
