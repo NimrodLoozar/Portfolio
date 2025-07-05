@@ -63,12 +63,12 @@
 </div>
 
 <!-- Modern Knight Game Demo Section -->
-<div class="py-24 sm:py-32">
+{{-- <div class="py-24 sm:py-32">
     <div class="mx-64 max-w-full px-6 lg:px-8">
         <iframe class="w-full h-screen border-4 border-gray-300" src="{{ asset('ModernKnight/index.html') }}"
             frameborder="0"></iframe>
     </div>
-</div>
+</div> --}}
 
 <script>
     // FadeInLeft animation
