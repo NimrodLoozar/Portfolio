@@ -29,6 +29,43 @@
     color-scheme: dark;
 }
 
+/* Mobile menu animations */
+#mobile-menu {
+    transition: all 0.3s ease-in-out;
+}
+
+#mobile-menu.hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+#mobile-menu:not(.hidden) {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+/* Mobile menu slide-in animation */
+#mobile-menu > div:last-child {
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+#mobile-menu:not(.hidden) > div:last-child {
+    transform: translateX(0);
+}
+
+/* Mobile menu backdrop fade */
+#mobile-menu > div:first-child {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#mobile-menu:not(.hidden) > div:first-child {
+    opacity: 1;
+}
+
 /* Smooth page transitions */
 html {
     scroll-behavior: smooth;

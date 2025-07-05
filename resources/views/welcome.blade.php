@@ -101,8 +101,8 @@
                         class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg p-2.5 inline-flex items-center transition-all duration-200">{{ __('app.projects') }}</a>
                     <a href="#contact"
                         class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg p-2.5 inline-flex items-center transition-all duration-200">{{ __('app.contact') }}</a>
-                    <a href="#"
-                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg p-2.5 inline-flex items-center transition-all duration-200">{{ __('app.company') }}</a>
+                    {{-- <a href="#"
+                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg p-2.5 inline-flex items-center transition-all duration-200">{{ __('app.company') }}</a> --}}
                     @auth
                         <a href="{{ route('dashboard') }}"
                             class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg p-2.5 inline-flex items-center transition-all duration-200">{{ __('app.dashboard') }}</a>
@@ -130,48 +130,100 @@
                 </div>
             </nav>
             <!-- Mobile menu, show/hide based on menu open state. -->
-            <div id="mobile-menu" class="lg:hidden hidden" role="dialog" aria-modal="true">
-                <!-- Background backdrop, show/hide based on slide-over state. -->
-                <div class="fixed inset-0 z-50"></div>
+            <div id="mobile-menu" class="lg:hidden hidden fixed inset-0 z-50" role="dialog" aria-modal="true">
+                <!-- Background backdrop -->
+                <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" aria-hidden="true"></div>
+
+                <!-- Panel -->
                 <div
-                    class="fixed inset-y-0 right-0 z-500 w-full overflow-y-auto bg-white dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:sm:ring-gray-100/10">
-                    <div class="flex items-center justify-between">
-                        <a href="#" class="-m-1.5 p-1.5">
-                            <span class="sr-only">Your Company</span>
-                            <img class="h-8 w-auto"
-                                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-                                alt="">
-                        </a>
-                        <button id="mobile-menu-close-button" type="button"
-                            class="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-300">
-                            <span class="sr-only">Close menu</span>
-                            <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" aria-hidden="true" data-slot="icon">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="mt-6 flow-root">
-                        <div class="-my-6 divide-y divide-gray-500/10">
-                            <div class="space-y-2 py-6">
-                                <a href="#about"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800">{{ __('app.about') }}</a>
-                                <a href="#projects"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800">{{ __('app.projects') }}</a>
-                                <a href="#contact"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800">{{ __('app.contact') }}</a>
-                                <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800">{{ __('app.company') }}</a>
-                                <!-- Enhanced Mobile theme toggle -->
-                                <x-theme-toggle class="mt-2" />
-                                <!-- Mobile Language selector -->
-                                <div class="mt-2">
+                    class="fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-y-auto bg-white dark:bg-gray-900 shadow-xl">
+                    <div class="flex h-full flex-col">
+                        <!-- Header -->
+                        <div
+                            class="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
+                            <div class="flex items-center">
+                                <span class="text-xl font-bold text-gray-900 dark:text-white">Menu</span>
+                            </div>
+                            <button id="mobile-menu-close-button" type="button"
+                                class="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">
+                                <span class="sr-only">Close menu</span>
+                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Navigation Links -->
+                        <div class="flex-1 px-6 py-6">
+                            <nav class="space-y-3">
+                                <a href="#about" id="mobile-about-link"
+                                    class="flex items-center rounded-lg px-3 py-3 text-base font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                                    <svg class="h-5 w-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
+                                        </path>
+                                    </svg>
+                                    {{ __('app.about') }}
+                                </a>
+                                <a href="#projects" id="mobile-projects-link"
+                                    class="flex items-center rounded-lg px-3 py-3 text-base font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                                    <svg class="h-5 w-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                                        </path>
+                                    </svg>
+                                    {{ __('app.projects') }}
+                                </a>
+                                <a href="#contact" id="mobile-contact-link"
+                                    class="flex items-center rounded-lg px-3 py-3 text-base font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                                    <svg class="h-5 w-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                        </path>
+                                    </svg>
+                                    {{ __('app.contact') }}
+                                </a>
+
+                                @auth
+                                    <a href="{{ route('dashboard') }}" id="mobile-dashboard-link"
+                                        class="flex items-center rounded-lg px-3 py-3 text-base font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                                        <svg class="h-5 w-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2">
+                                            </path>
+                                        </svg>
+                                        {{ __('app.dashboard') }}
+                                    </a>
+                                @else
+                                    <a href="{{ route('login') }}" id="mobile-login-link"
+                                        class="flex items-center rounded-lg px-3 py-3 text-base font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                                        <svg class="h-5 w-5 mr-3" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
+                                            </path>
+                                        </svg>
+                                        {{ __('app.login') }}
+                                    </a>
+                                @endauth
+                            </nav>
+                        </div>
+
+                        <!-- Settings Section -->
+                        <div class="border-t border-gray-200 dark:border-gray-700 p-6">
+                            <div class="space-y-4">
+                                <!-- Theme Toggle -->
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-medium text-gray-900 dark:text-white">Theme</span>
+                                    <x-theme-toggle class="scale-75" />
+                                </div>
+
+                                <!-- Language Selector -->
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-medium text-gray-900 dark:text-white">Language</span>
                                     <x-language-selector />
                                 </div>
-                            </div>
-                            <div class="py-6">
-                                <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800">{{ __('app.login') }}</a>
                             </div>
                         </div>
                     </div>
@@ -195,7 +247,8 @@
 
 
             <!-- Hero Section -->
-            <section class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between mb-16 gap-10 px-4">
+            <section
+                class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between mb-16 gap-10 px-4">
                 <div id="fade-animationLeft" class="flex-1 text-center lg:text-left">
                     <h1
                         class="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -249,14 +302,54 @@
     </footer>
     </div>
     <script>
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            var menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenuCloseButton = document.getElementById('mobile-menu-close-button');
+            const mobileMenu = document.getElementById('mobile-menu');
 
-        document.getElementById('mobile-menu-close-button').addEventListener('click', function() {
-            var menu = document.getElementById('mobile-menu');
-            menu.classList.add('hidden');
+            // Open mobile menu
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            });
+
+            // Close mobile menu
+            mobileMenuCloseButton.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            });
+
+            // Close menu when clicking on backdrop
+            mobileMenu.addEventListener('click', function(e) {
+                if (e.target === mobileMenu || e.target.classList.contains('backdrop-blur-sm')) {
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Close menu when clicking on navigation links
+            const mobileLinks = document.querySelectorAll('#mobile-menu a[href^="#"]');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                });
+            });
+
+            // Smooth scrolling for all anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
         });
     </script>
 
