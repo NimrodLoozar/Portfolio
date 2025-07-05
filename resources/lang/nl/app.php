@@ -11,7 +11,7 @@ return [
 
     // Hero section
     'pre_intro_name' => "Hallo, ik ben ",
-    'intro_name' => "F.Nimród Lobozár",
+    'intro_name' => "F. Nimród Lobozár",
     'intro_description' => 'Een gepassioneerde student-ontwikkelaar met expertise in Laravel, PHP, Tailwind CSS en moderne frontend-technologieën. Momenteel bezig met softwareontwikkeling met een sterke focus op full-stack webapplicaties.',
     'frontend_focused' => 'Frontend Gericht',
     'fullstack_learning' => 'Full-Stack Leren',    // About section

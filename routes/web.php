@@ -18,7 +18,7 @@ Route::get('/dropdown-test', function () {
 })->name('dropdown.test');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect()->route('dashboard');
 });
 
 Route::get('/login', function () {
@@ -29,7 +29,6 @@ Route::get('/project/{id}', [ProjectsController::class, 'show'])->name('projects
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/projects/new', [ProjectsController::class, 'create'])->name('projects.create'); // Ensure this line is correct
-    Route::get('/dashboard/projects', [ProjectsController::class, 'index'])->name('projects.index');
     Route::post('/projects', [ProjectsController::class, 'store'])->name('projects.store');
     Route::get('/projects/{id}/edit', [ProjectsController::class, 'edit'])->name('projects.edit');
     Route::patch('/projects/{id}', [ProjectsController::class, 'update'])->name('projects.update');

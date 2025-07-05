@@ -5,12 +5,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!typewriter || !cursor) return;
 
     const texts = [
-        'Full-Stack Developer',
-        'Frontend Developer',
-        'Backend Developer',
-        'Web Application Developer',
+        'JR. Full-Stack Developer',
+        'JR. Frontend Developer',
+        'JR. Backend Developer',
+        'JR. Web Application Developer',
         'Student Developer',
-        'Website Developer'
+        'JR. Website Developer'
     ];
 
     let textIndex = 0;

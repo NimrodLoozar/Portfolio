@@ -96,16 +96,16 @@
             <nav class="flex items-center justify-center p-2 lg:px-8" aria-label="Global">
                 <div class="hidden lg:flex lg:gap-x-4 items-center">
                     <a href="#about"
-                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center transition-all duration-200">{{ __('app.about') }}</a>
+                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg p-2.5 inline-flex items-center transition-all duration-200">{{ __('app.about') }}</a>
                     <a href="#projects"
-                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center transition-all duration-200">{{ __('app.projects') }}</a>
+                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg p-2.5 inline-flex items-center transition-all duration-200">{{ __('app.projects') }}</a>
                     <a href="#contact"
-                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center transition-all duration-200">{{ __('app.contact') }}</a>
+                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg p-2.5 inline-flex items-center transition-all duration-200">{{ __('app.contact') }}</a>
                     <a href="#"
-                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center transition-all duration-200">{{ __('app.company') }}</a>
+                        class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg p-2.5 inline-flex items-center transition-all duration-200">{{ __('app.company') }}</a>
                     @auth
                         <a href="{{ route('dashboard') }}"
-                            class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center transition-all duration-200">{{ __('app.dashboard') }}</a>
+                            class="text-sm/6 font-semibold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg p-2.5 inline-flex items-center transition-all duration-200">{{ __('app.dashboard') }}</a>
                     @else
                         {{-- <a href="{{ route('login') }}" class="text-sm/6 font-semibold text-white">{{ __('app.login') }} <span
                     aria-hidden="true">&rarr;</span></a> --}}
@@ -199,8 +199,8 @@
                 <div id="fade-animationLeft" class="flex-1 text-center lg:text-left">
                     <h1
                         class="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                        {{ __('app.pre_intro_name') }}<span
-                            class="text-blue-600 dark:text-blue-400">{{ __('app.intro_name') }}</span>
+                        {{ __('app.pre_intro_name') }} <br>
+                        <span class="text-blue-600 dark:text-blue-400">{{ __('app.intro_name') }}</span>
                     </h1>
 
                     <!-- Typing Animation -->

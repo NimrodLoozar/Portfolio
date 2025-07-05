@@ -13,12 +13,6 @@
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('projects.index')" :active="request()->routeIs('projects.index')">
-                            {{ __('Projects') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('projects.create')" :active="request()->routeIs('projects.create')">
-                            {{ __('Create Project') }}
-                        </x-nav-link>
                         <div class="flex items-center">
                             <x-theme-toggle />
                         </div>
@@ -108,12 +102,6 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}
-                </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('projects.index')" :active="request()->routeIs('projects.index')">
-                    {{ __('Projects') }}
-                </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('projects.create')" :active="request()->routeIs('projects.create')">
-                    {{ __('Create Project') }}
                 </x-responsive-nav-link>
                 <!-- Mobile Language Selector -->
                 <div class="px-3 py-2">
